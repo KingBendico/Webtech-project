@@ -14,7 +14,7 @@
     Access-Control-Allow-Origin = "*"
 
 [[functions]]
-  directory = "functions"
+  directory = "functions" 
 
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
