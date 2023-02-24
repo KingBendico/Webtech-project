@@ -4,16 +4,16 @@
   functions = "netlify/functions"
   publish = "dist"
 
-[[redirects]]
+[redirects]
   from = "/json_data/cart_items.json"
   to = "/.netlify/functions/json_data"
 
-[[headers]]
+[headers]
   for = "/json_data/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
 
-[[functions]]
+[functions]
   directory = "functions" 
 
 
