@@ -4,6 +4,10 @@
   functions = "netlify/functions"
   publish = "dist"
 
+[functions]
+  directory = "src"
+  included_files = ["json_date/cart_items.json"]
+
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
