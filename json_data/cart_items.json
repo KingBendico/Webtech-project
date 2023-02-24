@@ -6,7 +6,9 @@
       "currency": "DKK",
       "rebateQuantity": 3,
       "rebatePercent": 10,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 5
+      
     },
     {
       "id": "vitamin-c-500-250",
@@ -15,7 +17,9 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 25,
-      "upsellProductId": "vitamin-c-depot-500-250"
+      "upsellProductId": "vitamin-c-depot-500-250",
+      "quantity": 2
+      
     },
     {
       "id": "vitamin-c-depot-500-250",
@@ -24,7 +28,8 @@
       "currency": "DKK",
       "rebateQuantity": 3,
       "rebatePercent": 10,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 4
     },
     {
       "id": "fish-oil-1000-120",
@@ -33,7 +38,8 @@
       "currency": "DKK",
       "rebateQuantity": 5,
       "rebatePercent": 10,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 6
     },
     {
       "id": "coffee-grinder",
@@ -42,7 +48,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": "coffee-grinder-pro"
+      "upsellProductId": "coffee-grinder-pro",
+      "quantity": 7
     },
     {
       "id": "coffee-grinder-pro",
@@ -51,7 +58,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 12
     },
     {
       "id": "toothbrush",
@@ -60,7 +68,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": "toothbrush-bamboo"
+      "upsellProductId": "toothbrush-bamboo",
+      "quantity": 1
     },
     {
       "id": "toothbrush-bamboo",
@@ -69,7 +78,8 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 2
     },
     {
       "id": "trimmer",
@@ -78,7 +88,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": "trimmer-battery"
+      "upsellProductId": "trimmer-battery",
+      "quantity": 1
     },
     {
       "id": "trimmer-battery",
@@ -87,7 +98,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 1
     },
     {
       "id": "hair-clip",
@@ -96,7 +108,8 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 20,
-      "upsellProductId": "hair-clip-large"
+      "upsellProductId": "hair-clip-large",
+      "quantity": 4
     },
     {
       "id": "hair-clip-large",
@@ -105,7 +118,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 1
     },
     {
       "id": "scarf-cotton",
@@ -114,7 +128,8 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": "scarf-wool"
+      "upsellProductId": "scarf-wool",
+      "quantity": 1
     },
     {
       "id": "scarf-wool",
@@ -123,7 +138,8 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": "scarf-silk"
+      "upsellProductId": "scarf-silk",
+      "quantity": 1
     },
     {
       "id": "scarf-silk",
@@ -132,7 +148,8 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": null
+      "upsellProductId": null,
+      "quantity": 2
     },
     {
       "id": "cap",
@@ -141,7 +158,8 @@
       "currency": "DKK",
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": "cap-flat"
+      "upsellProductId": "cap-flat",
+      "quantity": 1
     },
     {
       "id": "cap-flat",
@@ -150,7 +168,8 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": null
+      "upsellProductId": 1,
+      "quantity": 15
     },
     {
       "id": "teddy",
@@ -159,105 +178,7 @@
       "currency": "DKK",
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": "teddy-large"
-    },
-    {
-      "id": "teddy-large",
-      "name": "Plysbamse, stor",
-      "price": 150,
-      "currency": "DKK",
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
-      "upsellProductId": null
-    },
-    {
-      "id": "kids-songbook",
-      "name": "De små synger",
-      "price": 120,
-      "currency": "DKK",
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
-      "upsellProductId": "kids-songbook-hardcover"
-    },
-    {
-      "id": "kids-songbook-hardcover",
-      "name": "De små synger, indbundet",
-      "price": 180,
-      "currency": "DKK",
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
-      "upsellProductId": null
-    },
-    {
-      "id": "coffeebeans-500g",
-      "name": "Kaffebønner",
-      "price": 50,
-      "currency": "DKK",
-      "rebateQuantity": 4,
-      "rebatePercent": 25,
-      "upsellProductId": "coffeebeans-organic-500g"
-    },
-    {
-      "id": "coffeebeans-organic-500g",
-      "name": "Kaffebønner, økologiske",
-      "price": 60,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": null
-    },
-    {
-      "id": "the-english-100g",
-      "name": "Sort te, 100g",
-      "price": 20,
-      "currency": "DKK",
-      "rebateQuantity": 4,
-      "rebatePercent": 25,
-      "upsellProductId": "the-darjeeling-100g"
-    },
-    {
-      "id": "the-darjeeling-100g",
-      "name": "Sort te, Darjeeling, 100g",
-      "price": 30,
-      "currency": "DKK",
-      "rebateQuantity": 4,
-      "rebatePercent": 25,
-      "upsellProductId": "the-organic-100g"
-    },
-    {
-      "id": "the-organic-100g",
-      "name": "Sort te, Darjeeling, økologisk, 100g",
-      "price": 35,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": null
-    },
-    {
-      "id": "sugar-white-1kg",
-      "name": "Sukker, hvidt, 1000g",
-      "price": 30,
-      "currency": "DKK",
-      "rebateQuantity": 4,
-      "rebatePercent": 25,
-      "upsellProductId": "sugar-cane-1kg"
-    },
-    {
-      "id": "sugar-cane-1kg",
-      "name": "Rørsukker, 1000g",
-      "price": 40,
-      "currency": "DKK",
-      "rebateQuantity": 4,
-      "rebatePercent": 25,
-      "upsellProductId": "sugar-organic-1kg"
-    },
-    {
-      "id": "sugar-organic-1kg",
-      "name": "Rørsukker, økologisk, 1000g",
-      "price": 45,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": null
+      "upsellProductId": "teddy-large",
+      "quantity": 1
     }
   ]
