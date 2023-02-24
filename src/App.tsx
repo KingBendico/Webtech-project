@@ -1,6 +1,8 @@
 import reactLogo from './assets/react.svg'
 import './App.css'
 import React, { useState, useEffect } from 'react';
+import cartItems from '/json_data/cart_items.json';
+
 
 interface Item {
   name: string;
@@ -19,13 +21,8 @@ function App() {
 
 
 function ItemList() {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Item[]>(cartItems);
 
-  useEffect(() => {
-    fetch('/json_data/cart_items.json')
-      .then(response => response.json())
-      .then((data: Item[]) => setItems(data));
-  }, []);
 
   const handleDeleteItem = (index: number) => {
     const updatedItems = [...items];
