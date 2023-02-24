@@ -30,6 +30,21 @@ function ItemList() {
     setItems(updatedItems);
   }
 
+  const increaseQuantity = (index: number) => {
+    const updatedItems = [...items];
+    updatedItems[index].quantity++;
+    setItems(updatedItems);
+  }
+
+  const decreaseQuantity = (index: number) => {
+    const updatedItems = [...items];
+    const item = updatedItems[index];
+    if (item.quantity > 1) {
+      item.quantity--;
+      setItems(updatedItems);
+    }
+  }
+
   return (
     <div>
       <h1>Shopping Cart</h1>
@@ -46,7 +61,7 @@ function ItemList() {
           {items.map((item, index) => (
             <tr key={index}>
               <td>{item.name}</td>
-              <td>{item.quantity}</td>
+              <td>{item.quantity} <button onClick={() => increaseQuantity(index)}>+</button> <button onClick={() => decreaseQuantity(index)}>-</button></td>
               <td>{item.price} kr.</td>
               <td><button onClick={() => handleDeleteItem(index)}>Delete</button></td>
             </tr>
