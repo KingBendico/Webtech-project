@@ -1,7 +1,7 @@
-import reactLogo from './assets/react.svg'
 import './App.css'
 import React, { useState, useEffect } from 'react';
 import cartItems from '/json_data/cart_items.json';
+
 
 
 interface Item {
