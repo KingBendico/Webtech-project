@@ -1,20 +1,9 @@
 # example netlify.toml
 [build]
   command = "npm run build"
-  functions = "functions"
+  functions = "netlify/functions"
   publish = "dist"
 
-[redirects]
-  from = "/json_data/cart_items.json"
-  to = "/.netlify/functions/json_data"
-
-[headers]
-  for = "/json_data/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-
-[functions]
-  directory = "functions" 
 
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
