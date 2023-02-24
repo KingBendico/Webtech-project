@@ -22,7 +22,7 @@ function ItemList() {
   const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
-    fetch('/dist/json_data/cart_items.json')
+    fetch('/json_data/cart_items.json')
       .then(response => response.json())
       .then((data: Item[]) => setItems(data));
   }, []);
