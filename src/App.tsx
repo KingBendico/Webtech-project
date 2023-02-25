@@ -1,62 +1,101 @@
 import './App.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import cartItems from '/json_data/cart_items.json';
-
 
 
 interface Item {
   name: string;
   quantity: number;
   price: number;
+  id: number;
+}
+
+interface Props {
+  items: Item[];
+  onDeleteItem: (index: number) => void;
+  onQuantityChange: (item: Item, newQuantity: number) => void;
 }
 
 function App() {
   return (
     <div>
-      <ItemList />
+      <ShoppingCart />
+      
     </div>
   );
 }
 
+function ShoppingCart() {
+  return (
+    <ShoppingCartTable />
+  )
+}
 
+function ShoppingCartTable() {
+
+  return (
+    <div>
+    <h1>Shopping Cart</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Item name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <ItemList />
+      </table>
+      </div>
+  )
+
+}
+
+
+function ItemTable(props: Props) {
+  const { items, onDeleteItem, onQuantityChange } = props;
+
+  return (
+    <tbody>
+      {items.map((item, index) => (
+        <tr key={item.id}>
+          <td>{item.name}</td>
+          <td>{item.price} kr.</td>
+          <td>
+            <button onClick={() => onQuantityChange(item, item.quantity - 1)}>-</button>
+            {item.quantity}
+            <button onClick={() => onQuantityChange(item, item.quantity + 1)}>+</button>
+          </td>
+          <td>
+            <button onClick={() => onDeleteItem(index)}>X</button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  );
+}
 
 function ItemList() {
   const [items, setItems] = useState<Item[]>(cartItems);
-
 
   const handleDeleteItem = (index: number) => {
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);
-  }
+  };
+
+  const handleQuantityChange = (item: Item, newQuantity: number) => {
+    const updatedItems = [...items];
+    const index = updatedItems.findIndex(i => i.id === item.id);
+    updatedItems[index].quantity = newQuantity;
+    setItems(updatedItems);
+  };
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Item name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, index) => (
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.quantity}</td>
-              <td>{item.price} kr.</td>
-              <td><button onClick={() => handleDeleteItem(index)}>Delete</button></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <ItemTable items={items} onDeleteItem={handleDeleteItem} onQuantityChange={handleQuantityChange} />
   );
 }
-
 
 
 export default App;
