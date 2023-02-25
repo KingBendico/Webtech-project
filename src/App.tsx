@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react';
+import { useState } from 'react';
 import cartItems from '/json_data/cart_items.json';
 
 
@@ -88,7 +88,7 @@ function ItemList() {
   const handleQuantityChange = (item: Item, newQuantity: number) => {
     const updatedItems = [...items];
     const index = updatedItems.findIndex(i => i.id === item.id);
-    updatedItems[index].quantity = newQuantity;
+    updatedItems[index].quantity = newQuantity > 0 ? newQuantity : 1;
     setItems(updatedItems);
   };
 
