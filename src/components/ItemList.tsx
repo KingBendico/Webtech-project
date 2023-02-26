@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import cartItems from '/json_data/cart_items.json';
 import ItemTable from './ItemTable'
+import {Item} from '../types/types'
 
-interface Item {
-    name: string;
-    quantity: number;
-    price: number;
-    id: number;
+interface Props {
+    items: Item[];
+    setItems: (items: Item[]) => void;
   }
 
-export default function ItemList() {
+export default function ItemList(props: Props) {
     const [items, setItems] = useState<Item[]>(cartItems);
   
     const handleDeleteItem = (index: number) => {

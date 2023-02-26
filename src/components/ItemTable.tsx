@@ -1,9 +1,4 @@
-interface Item {
-    name: string;
-    quantity: number;
-    price: number;
-    id: number;
-  }
+import {Item} from '../types/types'
 
 interface Props {
     items: Item[];

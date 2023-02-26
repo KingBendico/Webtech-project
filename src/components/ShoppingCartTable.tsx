@@ -1,6 +1,13 @@
 import ItemList from './ItemList'
+import {Item} from '../types/types'
 
-export default function ShoppingCartTable() {
+interface Props {
+    items: Item[];
+    setItems: (items: Item[]) => void;
+  }
+export default function ShoppingCartTable(props:Props) {
+
+
 
     return (
       <div>
@@ -15,7 +22,7 @@ export default function ShoppingCartTable() {
             <th>Delete</th>
           </tr>
         </thead>
-        <ItemList />
+        <ItemList items={props.items} setItems={props.setItems}/>
         </table>
         </div>
     )
