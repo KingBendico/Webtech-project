@@ -2,6 +2,8 @@ import './App.css'
 // import { useState } from 'react';
 // import cartItems from '/json_data/cart_items.json';
 import ShoppingCart from './pages/ShoppingCart'
+import i18n from 'i18next';
+
 
 // interface Item {
 //   name: string;
@@ -15,6 +17,29 @@ import ShoppingCart from './pages/ShoppingCart'
 //   onDeleteItem: (index: number) => void;
 //   onQuantityChange: (item: Item, newQuantity: number) => void;
 // }
+i18n.init({
+  lng: 'da',
+  resources: {
+    en: {
+      translation: {
+        'itemName': 'Item Name',
+        'price': 'Price',
+        'quantity': 'Quantity',
+        'totalPrice': 'Total Price',
+        'delete': 'Delete'
+      }
+    },
+    da: {
+      translation: {
+        'itemName': 'Item Navn',
+        'price': 'Pris',
+        'quantity': 'Antal',
+        'totalPrice': 'Total Pris',
+        'delete': 'Slet'
+      }
+    }
+  }
+});
 
 function App() {
   return (
