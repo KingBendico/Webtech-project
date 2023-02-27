@@ -1,4 +1,5 @@
 import {Item} from '../types/types'
+import React from 'react';
 
 interface Props {
     items: Item[];

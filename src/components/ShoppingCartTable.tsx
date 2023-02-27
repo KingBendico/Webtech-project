@@ -1,5 +1,6 @@
 import ItemList from './ItemList'
 import {Item} from '../types/types'
+import React from 'react';
 
 interface Props {
     items: Item[];
@@ -15,8 +16,8 @@ export default function ShoppingCartTable(props:Props) {
       <table>
         <thead>
           <tr>
-            <th>Item name</th>
-            <th>Price</th>
+            <th>Item</th>
+            <th>Unit Price</th>
             <th>Quantity</th>
             <th>Total Price</th>
             <th>Delete</th>

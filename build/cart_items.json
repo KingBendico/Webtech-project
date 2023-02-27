@@ -49,7 +49,7 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": "coffee-grinder-pro",
-      "quantity": 1
+      "quantity": 7
     },
     {
       "id": "coffee-grinder-pro",
@@ -59,7 +59,7 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": null,
-      "quantity": 1
+      "quantity": 5
     },
     {
       "id": "toothbrush",
@@ -169,7 +169,7 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": 1,
-      "quantity": 1
+      "quantity": 15
     },
     {
       "id": "teddy",
