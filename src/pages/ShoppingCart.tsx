@@ -7,13 +7,8 @@ import ShoppingCartSummary from "../components/ShoppingCartSummary";
 
 
 
-interface Props {
-    items: Item[];
-    setItems: (items: Item[]) => void;
-  
-}
 
-export default function ShoppingCart(props: Props) {
+export default function ShoppingCart() {
     const [items, setItems] = useState<Item[]>(cartItems);
 
     return (

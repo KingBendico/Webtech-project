@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import cartItems from '../../json_data/cart_items.json';
 import ItemTable from './ItemTable'
 import {Item} from '../types/types'
 import React from 'react';
-import ShoppingCartSummary from './ShoppingCartSummary';
+
 
 interface Props {
     items: Item[];

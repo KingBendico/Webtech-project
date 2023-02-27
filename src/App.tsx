@@ -1,6 +1,4 @@
 import './App.css'
-import { useState } from 'react';
-import cartItems from '../json_data/cart_items.json';
 import ShoppingCart from './pages/ShoppingCart'
 import React from 'react';
 import {Item} from './types/types'
@@ -18,16 +16,11 @@ import {Item} from './types/types'
 //   onQuantityChange: (item: Item, newQuantity: number) => void;
 // }
 
-interface Props {
-  items: Item[];
-  setItems: (items: Item[]) => void;
 
-}
-
-function App(props: Props) {
+function App() {
   return (
     <div>
-      <ShoppingCart items={props.items} setItems={props.setItems}  />
+      <ShoppingCart   />
       
       
     </div>
