@@ -7,7 +7,9 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 5
+      "quantity": 5,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
       
     },
     {
@@ -18,7 +20,10 @@
       "rebateQuantity": 2,
       "rebatePercent": 25,
       "upsellProductId": "vitamin-c-depot-500-250",
-      "quantity": 2
+      "quantity": 2,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
+      
       
     },
     {
@@ -29,7 +34,10 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 4
+      "quantity": 4,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
+      
     },
     {
       "id": "fish-oil-1000-120",
@@ -39,7 +47,9 @@
       "rebateQuantity": 5,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 6
+      "quantity": 6,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "coffee-grinder",
@@ -49,7 +59,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": "coffee-grinder-pro",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "coffee-grinder-pro",
@@ -59,7 +71,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": null,
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "toothbrush",
@@ -69,7 +83,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": "toothbrush-bamboo",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "toothbrush-bamboo",
@@ -79,7 +95,9 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 2
+      "quantity": 2,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "trimmer",
@@ -89,7 +107,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": "trimmer-battery",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "trimmer-battery",
@@ -99,7 +119,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": null,
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "hair-clip",
@@ -109,7 +131,9 @@
       "rebateQuantity": 2,
       "rebatePercent": 20,
       "upsellProductId": "hair-clip-large",
-      "quantity": 4
+      "quantity": 4,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "hair-clip-large",
@@ -119,7 +143,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": null,
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "scarf-cotton",
@@ -129,7 +155,9 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": "scarf-wool",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "scarf-wool",
@@ -139,7 +167,9 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": "scarf-silk",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "scarf-silk",
@@ -149,7 +179,9 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 2
+      "quantity": 2,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "cap",
@@ -159,7 +191,9 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": "cap-flat",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "cap-flat",
@@ -169,7 +203,9 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": 1,
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     },
     {
       "id": "teddy",
@@ -179,6 +215,8 @@
       "rebateQuantity": 0,
       "rebatePercent": 0,
       "upsellProductId": "teddy-large",
-      "quantity": 1
+      "quantity": 1,
+      "recurringSchedule": "",
+      "isGiftWrapped": false
     }
   ]

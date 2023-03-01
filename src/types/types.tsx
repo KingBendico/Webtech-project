@@ -7,6 +7,4 @@ interface Item {
     recurringSchedule: string;
   }
 
-
-
 export type {Item}
