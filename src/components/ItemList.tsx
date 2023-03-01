@@ -1,7 +1,5 @@
 import ItemTable from './ItemTable'
 import {Item} from '../types/types'
-import React from 'react';
-
 
 interface Props {
     items: Item[];
@@ -24,11 +22,37 @@ export default function ItemList(props: Props) {
         updatedItems[index].quantity = newQuantity > 0 ? newQuantity : 1;
         setItems(updatedItems);
     };
+
+    const handleToggleGiftWrap = (item: Item) => {
+        const updatedItems = [...items];
+        const index = updatedItems.findIndex((i) => i.id === item.id);
+        updatedItems[index].isGiftWrapped = !updatedItems[index].isGiftWrapped;
+        setItems(updatedItems);
+      };
+
+      const handleRecurringScheduleChange = (item: Item, newSchedule: string) => {
+        const updatedItems = [...items];
+        const index = updatedItems.findIndex(i => i.id === item.id);
+        updatedItems[index].recurringSchedule = newSchedule;
+        setItems(updatedItems);
+      };
   
     return (
         <>
-            <ItemTable items={items} onDeleteItem={handleDeleteItem} onQuantityChange={handleQuantityChange} />
-            
+          {items.length === 0 ? (
+            <p>Din indkøbskurv er tom</p>
+          ) : (
+            <>
+              <ItemTable
+                items={items}
+                onDeleteItem={handleDeleteItem}
+                onQuantityChange={handleQuantityChange}
+                onToggleGiftWrap={handleToggleGiftWrap}
+                onRecurringScheduleChange={handleRecurringScheduleChange}
+              /> 
+
+            </>
+          )}
         </>
     );
 }

@@ -12,7 +12,7 @@ export default function ShoppingCartSummary(props:Props) {
    
     return (
        
-          <h3>Total price of items: {items.reduce((total, item) => total + item.price * item.quantity, 0)} dkk</h3>
+          <h3>Pris i alt: {items.reduce((total, item) => total + item.price * item.quantity, 0)} kr.</h3>
        
       );
     }

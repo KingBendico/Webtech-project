@@ -12,15 +12,19 @@ export default function ShoppingCartTable(props:Props) {
 
     return (
       <div>
-      <h1>Shopping Cart</h1>
+      <h1>Indkøbskurv</h1>
       <table>
         <thead>
           <tr>
-            <th>Item</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-            <th>Delete</th>
+            <th>Vare</th>
+            <th>Stykpris</th>
+            <th>Antal</th>
+            <th>Total pris</th>
+            <th>Slet</th>
+            <th>Gaveindpakning</th>
+            <th>Tilbagevendende ordre</th>
+            <td>
+</td>
           </tr>
         </thead>
         <ItemList items={props.items} setItems={props.setItems}/>
