@@ -1,6 +1,7 @@
 import ItemTable from './ItemTable'
 import {Item} from '../types/types'
 
+
 interface Props {
     items: Item[];
     setItems: (items: Item[]) => void;
@@ -36,7 +37,7 @@ export default function ItemList(props: Props) {
         updatedItems[index].recurringSchedule = newSchedule;
         setItems(updatedItems);
       };
-  
+
     return (
         <>
           {items.length === 0 ? (
@@ -50,7 +51,7 @@ export default function ItemList(props: Props) {
                 onToggleGiftWrap={handleToggleGiftWrap}
                 onRecurringScheduleChange={handleRecurringScheduleChange}
               /> 
-
+            
             </>
           )}
         </>

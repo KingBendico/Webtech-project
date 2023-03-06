@@ -5,6 +5,8 @@ interface Item {
     id: string;
     isGiftWrapped: boolean;
     recurringSchedule: string;
+    rebateQuantity: number
+    rebatePercent: number
   }
 
 export type {Item}

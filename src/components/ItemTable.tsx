@@ -17,13 +17,13 @@ export default function ItemTable(props: Props) {
       {items.map((item, index) => (
         <tr key={item.id}>
           <td>{item.name}</td>
-          <td>{item.price} kr.</td>
+          <td>{item.price.toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           <td>
             <button onClick={() => onQuantityChange(item, item.quantity - 1)}>-</button>
             {item.quantity}
             <button onClick={() => onQuantityChange(item, item.quantity + 1)}>+</button>
           </td>
-          <td>{item.price * item.quantity}</td>
+          <td>{(item.price * item.quantity).toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           <td>
             <button onClick={() => onDeleteItem(index)}>X</button>
           </td>

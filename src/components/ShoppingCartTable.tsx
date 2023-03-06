@@ -27,7 +27,7 @@ export default function ShoppingCartTable(props:Props) {
 </td>
           </tr>
         </thead>
-        <ItemList items={props.items} setItems={props.setItems}/>
+        <ItemList items={props.items} setItems={props.setItems} />
         </table>
         </div>
     )
