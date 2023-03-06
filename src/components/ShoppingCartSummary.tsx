@@ -27,7 +27,7 @@ export default function ShoppingCartSummary(props:Props) {
       <>
           <h3>Pris i alt uden rabat: {items.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })} </h3>
           <h3>Pris med rabat: {totalPrice.toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
-          <h3>P10% rabat på ordrer over 300 kr.: {totalWithDiscount.toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
+          <h3>10% rabat på ordrer over 300 kr.: {totalWithDiscount.toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
 </>
           
           
