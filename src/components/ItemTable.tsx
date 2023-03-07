@@ -12,6 +12,33 @@ interface Props {
 export default function ItemTable(props: Props) {
   const { items, onDeleteItem, onQuantityChange, onToggleGiftWrap, onRecurringScheduleChange } = props;
 
+  const totalQuantityRebatePrice = items.map((item) => {
+    // Check if price and quantity are valid numbers
+    if (typeof item.price !== 'number' || typeof item.quantity !== 'number') {
+      return NaN;
+    }
+  
+    // Calculate the total price before rebate
+    const totalQuantityPrice = item.price * item.quantity;
+  
+    // Check if rebateQuantity and rebatePercent are valid numbers or 0. If this check isn't done, NaN is returned
+    if (typeof item.rebateQuantity !== 'number' || item.rebateQuantity === 0 || typeof item.rebatePercent !== 'number') {
+      return totalQuantityPrice;
+    }
+  
+    // Calculate the number of rebate units applicable
+    const rebateUnits = Math.floor(item.quantity / item.rebateQuantity);
+  
+    // Calculate the total rebate amount
+    const rebateAmount = (rebateUnits * item.rebateQuantity) * item.price * (item.rebatePercent / 100);
+  
+    // Calculate the final price after rebate
+    const finalPrice = totalQuantityPrice - rebateAmount;
+  
+    return finalPrice;
+  });
+  
+  
   return (
     <tbody>
       {items.map((item, index) => (
@@ -23,7 +50,7 @@ export default function ItemTable(props: Props) {
             {item.quantity}
             <button onClick={() => onQuantityChange(item, item.quantity + 1)}>+</button>
           </td>
-          <td>{(item.price * item.quantity).toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+          <td>{(totalQuantityRebatePrice[index]).toLocaleString('da-DK', { style: 'currency', currency: 'DKK', minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           <td>
             <button onClick={() => onDeleteItem(index)}>X</button>
           </td>
