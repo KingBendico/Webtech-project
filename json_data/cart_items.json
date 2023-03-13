@@ -7,7 +7,7 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 5,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
       
@@ -20,7 +20,7 @@
       "rebateQuantity": 2,
       "rebatePercent": 25,
       "upsellProductId": "vitamin-c-depot-500-250",
-      "quantity": 2,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
       
@@ -34,7 +34,7 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 4,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
       
@@ -47,7 +47,7 @@
       "rebateQuantity": 5,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 6,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
     },
@@ -95,7 +95,7 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 2,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
     },
@@ -131,90 +131,6 @@
       "rebateQuantity": 2,
       "rebatePercent": 20,
       "upsellProductId": "hair-clip-large",
-      "quantity": 4,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "hair-clip-large",
-      "name": "Hårklemme, stor",
-      "price": 45,
-      "currency": "DKK",
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
-      "upsellProductId": null,
-      "quantity": 1,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "scarf-cotton",
-      "name": "Tørklæde, bomuld",
-      "price": 100,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": "scarf-wool",
-      "quantity": 1,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "scarf-wool",
-      "name": "Tørklæde, uld",
-      "price": 150,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": "scarf-silk",
-      "quantity": 1,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "scarf-silk",
-      "name": "Tørklæde, silke",
-      "price": 250,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": null,
-      "quantity": 2,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "cap",
-      "name": "Kasket",
-      "price": 150,
-      "currency": "DKK",
-      "rebateQuantity": 2,
-      "rebatePercent": 10,
-      "upsellProductId": "cap-flat",
-      "quantity": 1,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "cap-flat",
-      "name": "Kasket, sixpence",
-      "price": 590,
-      "currency": "DKK",
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
-      "upsellProductId": 1,
-      "quantity": 1,
-      "recurringSchedule": "",
-      "isGiftWrapped": false
-    },
-    {
-      "id": "teddy",
-      "name": "Plysbamse",
-      "price": 75,
-      "currency": "DKK",
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
-      "upsellProductId": "teddy-large",
       "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
