@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build && cp -R json_data build/",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "tsc && vitest --run --coverage && vite build"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
