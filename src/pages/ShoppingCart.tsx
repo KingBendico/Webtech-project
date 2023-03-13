@@ -16,7 +16,7 @@ export default function ShoppingCart() {
         <>
             <ShoppingCartTable items={items} setItems={setItems}/>
             <ShoppingCartSummary items={items} />
-            <button><Link to="/checkout">Checkout</Link></button>
+            <button><Link to="/checkout">Gå Til Kassen</Link></button>
 
         </>
     )
