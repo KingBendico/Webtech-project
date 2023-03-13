@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -30,7 +30,11 @@ export default function Checkout() {
             await fetch('https://api.dataforsyningen.dk/postnumre?nr='+value)
                 .then((response) => response.json())
                 .then((body) => {
-                    setCity(body[0].navn)
+                    try{
+                        setCity(body[0].navn)
+                    }catch{
+                        
+                    }
 
                 }).catch((err)=>{console.log(err)})
         }
@@ -88,6 +92,9 @@ export default function Checkout() {
                 <label>CVR nummer</label>
                 <input name="vat-number" value={vatNumber} onChange={handleVatNumberChange}></input>
             </form>
+            <button>
+                <Link to="/">Gå Tilbage</Link>
+            </button>
 
         </>
     )
