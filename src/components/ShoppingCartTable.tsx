@@ -1,17 +1,13 @@
-import ItemList from './ItemList'
-import {Item} from '../types/types'
-import React from 'react';
+import ItemList from "./ItemList";
+import { Item } from "../types/types";
 
 interface Props {
-    items: Item[];
-    setItems: (items: Item[]) => void;
-  }
-export default function ShoppingCartTable(props:Props) {
-
-
-
-    return (
-      <div>
+  items: Item[];
+  setItems: (items: Item[]) => void;
+}
+export default function ShoppingCartTable(props: Props) {
+  return (
+    <div>
       <h1>Indkøbskurv</h1>
       <table>
         <thead>
@@ -23,13 +19,11 @@ export default function ShoppingCartTable(props:Props) {
             <th>Slet</th>
             <th>Gaveindpakning</th>
             <th>Tilbagevendende ordre</th>
-            <td>
-</td>
+            <td></td>
           </tr>
         </thead>
         <ItemList items={props.items} setItems={props.setItems} />
-        </table>
-        </div>
-    )
-  
-  }
+      </table>
+    </div>
+  );
+}
