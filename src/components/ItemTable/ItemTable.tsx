@@ -1,5 +1,5 @@
-import { Item } from "../types/types";
-import catalogue from "../../json_data/item_catalogue.json";
+import { Item } from "../../types/types";
+import catalogue from "../../../json_data/item_catalogue.json";
 
 interface Props {
   items: Item[];
