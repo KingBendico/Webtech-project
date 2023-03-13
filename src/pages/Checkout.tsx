@@ -23,7 +23,9 @@ export default function Checkout() {
 
     const handleZipCodeChange = async (e:React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value
-        setZipCode(value)
+        if(value.length <= 4) {
+            setZipCode(value)
+        }
         if(value.length === 4 && country=="denmark") {
             await fetch('https://api.dataforsyningen.dk/postnumre?nr='+value)
                 .then((response) => response.json())
