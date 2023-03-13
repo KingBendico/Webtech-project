@@ -7,7 +7,7 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 5,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
       
@@ -20,7 +20,7 @@
       "rebateQuantity": 2,
       "rebatePercent": 25,
       "upsellProductId": "vitamin-c-depot-500-250",
-      "quantity": 2,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
       
@@ -34,7 +34,7 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 4,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
       
@@ -47,7 +47,7 @@
       "rebateQuantity": 5,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 6,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
     },
@@ -95,7 +95,7 @@
       "rebateQuantity": 2,
       "rebatePercent": 10,
       "upsellProductId": null,
-      "quantity": 2,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
     },
@@ -131,7 +131,7 @@
       "rebateQuantity": 2,
       "rebatePercent": 20,
       "upsellProductId": "hair-clip-large",
-      "quantity": 4,
+      "quantity": 1,
       "recurringSchedule": "",
       "isGiftWrapped": false
     }
