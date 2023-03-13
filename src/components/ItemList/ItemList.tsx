@@ -1,5 +1,5 @@
-import ItemTable from "./ItemTable";
-import { Item } from "../types/types";
+import ItemTable from "../ItemTable/ItemTable";
+import { Item } from "../../types/types";
 
 interface Props {
   items: Item[];

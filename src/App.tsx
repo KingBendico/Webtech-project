@@ -1,6 +1,6 @@
 import './App.css'
-import ShoppingCart from './pages/ShoppingCart'
-import Checkout from './pages/Checkout';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart'
+import Checkout from './pages/Checkout/Checkout';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
