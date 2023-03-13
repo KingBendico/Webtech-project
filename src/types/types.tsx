@@ -7,7 +7,8 @@ interface Item {
   recurringSchedule: string;
   rebateQuantity: number;
   rebatePercent: number;
-  upsellProductId: string;
+  upsellProductId: any;
+  currency: string;
 }
 
 export type { Item };
