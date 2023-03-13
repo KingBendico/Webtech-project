@@ -1,11 +1,18 @@
 import './App.css'
 import ShoppingCart from './pages/ShoppingCart'
+import Checkout from './pages/Checkout';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <ShoppingCart   />  
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<ShoppingCart />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
