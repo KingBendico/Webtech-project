@@ -19,15 +19,11 @@ export default function customerInfoInput({customerInfo, setCustomerInfo}:Props)
         const value = e.target.value
         if (value.length < 5) {
             if (value.length === 4 && customerInfo.country == "denmark") {
-                const input = { ...customerInfo, zipCode: value, city: await fetchZipCodeAsync(value)}
-                setCustomerInfo(input)
+                setCustomerInfo({ ...customerInfo, zipCode: value, city: await fetchZipCodeAsync(value)})
             }else{
                 setCustomerInfo(({ ...customerInfo, zipCode: value }))
             }
         }
-        // if (value.length === 4 && customerInfo.country == "denmark") {
-        //     setCustomerInfo(await fetchZipCodeAsync(customerInfo.zipCode))
-        // }
     }
     const fetchZipCodeAsync = async (value:string) => {
         const cachName = "zipCodes"
