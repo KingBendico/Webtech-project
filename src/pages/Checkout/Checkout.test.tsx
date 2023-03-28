@@ -4,7 +4,7 @@ import Checkout from "./Checkout";
 
 describe(Checkout.name, () => {
   it("should render", () => {
-    render(<Checkout />);
+    render(<Checkout items={[]} />);
     expect(1==1)
   });
 });

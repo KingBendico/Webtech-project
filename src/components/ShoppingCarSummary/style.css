@@ -1,0 +1,22 @@
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+.summary p {
+    flex-basis: 100%;
+    text-align: right;
+    padding: 2px 5px;
+    margin: 2px;
+    font-weight: bolder;
+}
+
+.summary a {
+    text-decoration: none;
+    margin: 8px 0;
+    padding: 12px 22px;
+    background-color: #00aa00;
+    color: #fff;
+    border-radius: 2px;
+}

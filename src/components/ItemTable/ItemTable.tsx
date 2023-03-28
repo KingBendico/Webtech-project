@@ -1,5 +1,6 @@
 import { Item } from "../../types/types";
 import catalogue from "../../../json_data/item_catalogue.json";
+import "./style.css";
 
 interface Props {
   items: Item[];
@@ -104,7 +105,12 @@ export default function ItemTable(props: Props) {
             })}
           </td>
           <td>
-            <button onClick={() => onDeleteItem(index)}>X</button>
+            <button
+              style={{ all: "unset", cursor: "pointer" }}
+              onClick={() => onDeleteItem(index)}
+            >
+              &#10060;
+            </button>
           </td>
           <td>
             <input

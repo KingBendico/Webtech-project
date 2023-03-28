@@ -1,8 +1,17 @@
 import { Item } from "../../types/types";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 interface Props {
   items: Item[];
 }
+
+const currencyFormat = {
+  style: "currency",
+  currency: "DKK",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+};
 
 export default function ShoppingCartSummary(props: Props) {
   const { items } = props;
@@ -51,35 +60,26 @@ export default function ShoppingCartSummary(props: Props) {
 
   return (
     <>
-      <h3>
-        Pris i alt uden rabat:{" "}
-        {items
-          .reduce((total, item) => total + item.price * item.quantity, 0)
-          .toLocaleString("da-DK", {
-            style: "currency",
-            currency: "DKK",
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}{" "}
-      </h3>
-      <h3>
-        Pris med rabat:{" "}
-        {totalQuantityRebatePriceAccumulated.toLocaleString("da-DK", {
-          style: "currency",
-          currency: "DKK",
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-      </h3>
-      <h3>
-        10% rabat på ordrer over 300 kr.:{" "}
-        {totalWith10PercentDiscount.toLocaleString("da-DK", {
-          style: "currency",
-          currency: "DKK",
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-      </h3>
+      <div className="summary">
+        <p>
+          Pris i alt uden rabat:{" "}
+          {items
+            .reduce((total, item) => total + item.price * item.quantity, 0)
+            .toLocaleString("da-DK", currencyFormat)}{" "}
+        </p>
+        <p>
+          Pris med rabat:{" "}
+          {totalQuantityRebatePriceAccumulated.toLocaleString(
+            "da-DK",
+            currencyFormat
+          )}
+        </p>
+        <p>
+          10% rabat på ordrer over 300 kr.:{" "}
+          {totalWith10PercentDiscount.toLocaleString("da-DK", currencyFormat)}
+        </p>
+        <Link to="/checkout">Gå Til Kassen</Link>
+      </div>
     </>
   );
 }
