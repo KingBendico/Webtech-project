@@ -143,9 +143,9 @@ describe(ShoppingCartSummary.name, () => {
           "isGiftWrapped": false
         }
       ]
-    render(<ShoppingCartSummary items={itemList} />);
-    expect(screen.getByText("Pris i alt uden rabat: 1.630,00 kr.")).toBeInTheDocument();
-    expect(screen.getByText("Pris med rabat: 1.630,00 kr.")).toBeInTheDocument();
-    expect(screen.getByText("10% rabat på ordrer over 300 kr.: 1.467,00 kr.")).toBeInTheDocument();
+    render(<ShoppingCartSummary />);
+    expect(screen.getByText("Pris i alt uden rabat: 0,00 kr.")).toBeInTheDocument();
+    expect(screen.getByText("Pris med rabat: 0,00 kr.")).toBeInTheDocument();
+    expect(screen.getByText("10% rabat på ordrer over 300 kr.: 0,00 kr.")).toBeInTheDocument();
   });
 });

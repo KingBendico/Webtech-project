@@ -1,12 +1,10 @@
 import ItemList from "../ItemList/ItemList";
 import { Item } from "../../types/types";
+import { useCart } from '../../context/CartContext';
 import "./style.css";
 
-interface Props {
-  items: Item[];
-  setItems: (items: Item[]) => void;
-}
-export default function ShoppingCartTable(props: Props) {
+
+export default function ShoppingCartTable() {
   return (
     <div>
       <h1>Indkøbskurv</h1>
@@ -22,7 +20,7 @@ export default function ShoppingCartTable(props: Props) {
             <th>Tilbagevendende ordre</th>
           </tr>
         </thead>
-        <ItemList items={props.items} setItems={props.setItems} />
+        <ItemList />
       </table>
     </div>
   );
