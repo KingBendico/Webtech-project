@@ -12,15 +12,13 @@
     font-weight: bolder;
 }
 
-.summary a {
-    text-decoration: none;
+.summary button {
+    background-color: var(--validation-green-color);
+    color: var(--secondary-color);
     margin: 8px 0;
-    padding: 12px 22px;
-    background-color: #00aa00;
-    color: #fff;
-    border-radius: 2px;
 }
 
-.summary a:hover {
-    background-color: #018000;
+.summary button:hover {
+    background-color: var(--secondary-color);
+    color: var(--validation-green-color);
 }

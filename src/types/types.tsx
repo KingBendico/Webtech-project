@@ -11,19 +11,19 @@ interface Item {
   currency: string;
 }
 
-interface customerInfo {
-  country: string,
-  zipCode: string,
-  city: string,
-  adress: string,
-  phoneNr: string,
-  name: string,
-  email: string,
-  companyName: string,
-  vatNumber: string,
-  toc: boolean,
-  marketingEmails: boolean,
-  prefs: string
+interface CustomerInfo {
+  country: string;
+  zipCode: string;
+  city: string;
+  adress: string;
+  phoneNr: string;
+  name: string;
+  email: string;
+  companyName: string;
+  vatNumber: string;
+  toc: boolean;
+  marketingEmails: boolean;
+  prefs: string;
 }
 
 interface BillingAddress {
@@ -36,7 +36,7 @@ interface PaymentState {
   giftCardNumber: number | null;
   phoneNumber: number | null;
   billingAddress: BillingAddress | null;
-  paymentMethod: 'MobilePay' | 'GiftCard' | 'Invoice' | null;
+  paymentMethod: "MobilePay" | "GiftCard" | "Invoice" | null;
 }
 
-export type { Item, customerInfo, PaymentState, BillingAddress };
+export type { Item, CustomerInfo, PaymentState, BillingAddress };

@@ -1,0 +1,46 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 1rem;
+    margin-left: 7%;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 1rem;
+}
+
+.comment-wrapper {
+    padding-left: 4px;
+}
+
+.comment-wrapper input {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.wrapper-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.wrapper-navigation #back {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.wrapper-navigation #back:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.wrapper-navigation #pay {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.wrapper-navigation #pay:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}

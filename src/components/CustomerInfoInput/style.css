@@ -1,8 +1,9 @@
 @media screen and (min-width: 768px) {
     form {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr 2fr;
-        gap: 1rem;
+        grid-template-columns: 1fr 1fr ;
+        gap: 2rem;
+        margin-bottom: 3rem;
     }
 
     .label-wrapper {
@@ -11,14 +12,25 @@
     }
 
     .label-wrapper label {
-        width: 60%;
+        width: 25%;
         text-align: left;
     }
 
+    .label-wrapper input {
+        width: 60%;
+    }
+
+    .label-wrapper select {
+        width: 61.5%;
+    }
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+      }
 }

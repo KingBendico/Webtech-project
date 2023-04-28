@@ -6,13 +6,12 @@ table, th, td {
 
 table tr:hover,
 table tr:nth-child(even):hover {
-    background-color: #ccc;
+    background-color: #F3F6F4;
 }
 
 table tr:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: var(--secondary-color);
 }
-
 
 table td, table th {
     padding: 12px 16px;
@@ -23,6 +22,6 @@ table td button {
     padding: 2px 6px;
     background-color: unset;
     cursor: pointer;
-    border: 1px solid #ccc;
+    border: 1px solid var(--secondary-color);
     border-radius: 25%;
 }
