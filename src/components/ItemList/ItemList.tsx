@@ -1,13 +1,11 @@
 import ItemTable from "../ItemTable/ItemTable";
 import { Item } from "../../types/types";
+import { useCart } from "../../context/CartContext";
 
-interface Props {
-  items: Item[];
-  setItems: (items: Item[]) => void;
-}
 
-export default function ItemList(props: Props) {
-  const { items, setItems } = props;
+
+export default function ItemList() {
+  const { items, setItems} = useCart()
 
   const handleDeleteItem = (index: number) => {
     const updatedItems = [...items];
@@ -41,15 +39,12 @@ export default function ItemList(props: Props) {
       {items.length === 0 ? (
         <p>Din indkøbskurv er tom</p>
       ) : (
-        <>
           <ItemTable
-            items={items}
             onDeleteItem={handleDeleteItem}
             onQuantityChange={handleQuantityChange}
             onToggleGiftWrap={handleToggleGiftWrap}
             onRecurringScheduleChange={handleRecurringScheduleChange}
           />
-        </>
       )}
     </>
   );

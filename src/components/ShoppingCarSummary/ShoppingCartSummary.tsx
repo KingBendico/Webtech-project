@@ -1,10 +1,8 @@
 import { Item } from "../../types/types";
 import { Link } from "react-router-dom";
+import NavigateButton from "../NavigateButton/NavigateButton";
 import "./style.css";
-
-interface Props {
-  items: Item[];
-}
+import { useCart } from "../../context/CartContext";
 
 const currencyFormat = {
   style: "currency",
@@ -13,8 +11,8 @@ const currencyFormat = {
   maximumFractionDigits: 2,
 };
 
-export default function ShoppingCartSummary(props: Props) {
-  const { items } = props;
+export default function ShoppingCartSummary() {
+  const { items } = useCart()
 
   const totalQuantityRebatePriceAccumulated = items.reduce(
     (accumulator, item) => {
@@ -78,7 +76,7 @@ export default function ShoppingCartSummary(props: Props) {
           10% rabat på ordrer over 300 kr.:{" "}
           {totalWith10PercentDiscount.toLocaleString("da-DK", currencyFormat)}
         </p>
-        <Link to="/checkout">Gå Til Kassen</Link>
+        <NavigateButton to="/checkout">Gå Til Kassen</NavigateButton>
       </div>
     </>
   );

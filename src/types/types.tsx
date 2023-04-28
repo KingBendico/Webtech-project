@@ -10,21 +10,33 @@ interface Item {
   upsellProductId: any;
   currency: string;
 }
-interface CustomerInfo {
+
+interface customerInfo {
   country: string,
-  zipCode:string,
+  zipCode: string,
   city: string,
-  adress:string,
+  adress: string,
   phoneNr: string,
-  name:string,
+  name: string,
   email: string,
-  companyName:string,
-  vatNumber:string
+  companyName: string,
+  vatNumber: string,
+  toc: boolean,
+  marketingEmails: boolean,
+  prefs: string
 }
 
-interface CustomerAgreePrefs {
-  toc:boolean,
-  marketingEmails:boolean,
-  prefs:string
+interface BillingAddress {
+  company: string;
+  vatNumber: string;
 }
-export type { Item, CustomerInfo, CustomerAgreePrefs };
+
+interface PaymentState {
+  amount: number;
+  giftCardNumber: number | null;
+  phoneNumber: number | null;
+  billingAddress: BillingAddress | null;
+  paymentMethod: 'MobilePay' | 'GiftCard' | 'Invoice' | null;
+}
+
+export type { Item, customerInfo, PaymentState, BillingAddress };

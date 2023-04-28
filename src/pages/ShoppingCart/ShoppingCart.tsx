@@ -1,17 +1,13 @@
 import ShoppingCartTable from "../../components/ShoppingCartTable/ShoppingCartTable";
-import { Item } from "../../types/types";
 import ShoppingCartSummary from "../../components/ShoppingCarSummary/ShoppingCartSummary";
 
-interface Props {
-  items: Item[];
-  setItems: (items: Item[]) => void;
-}
 
-export default function ShoppingCart(props: Props) {
+
+export default function ShoppingCart() {
   return (
     <>
-      <ShoppingCartTable items={props.items} setItems={props.setItems} />
-      <ShoppingCartSummary items={props.items} />
+      <ShoppingCartTable />
+      <ShoppingCartSummary />
     </>
   );
 }
