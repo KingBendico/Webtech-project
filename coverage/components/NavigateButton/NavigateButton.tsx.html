@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/ShoppingCartTable/ShoppingCartTable.tsx</title>
+    <title>Code coverage report for components/NavigateButton/NavigateButton.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/ShoppingCartTable</a> ShoppingCartTable.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/NavigateButton</a> NavigateButton.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>14/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>14/17</span>
             </div>
         
             
@@ -80,24 +80,16 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -105,43 +97,21 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import ItemList from "../ItemList/ItemList";
-import { Item } from "../../types/types";
-import { useCart } from '../../context/CartContext';
-import "./style.css";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">interface Props {
+    to:string | URL | null | undefined,
+    children:String
+}
 &nbsp;
+export default function NavigateButton(props: Props) {
+    const NavigateTo = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        window.history.pushState({}, '', props.to);</span>
+<span class="cstat-no" title="statement not covered" >        window.dispatchEvent(new PopStateEvent('popstate'));</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
-export default function ShoppingCartTable() {
   return (
-    &lt;div&gt;
-      &lt;h1&gt;Indkøbskurv&lt;/h1&gt;
-      &lt;table&gt;
-        &lt;thead&gt;
-          &lt;tr&gt;
-            &lt;th&gt;Vare&lt;/th&gt;
-            &lt;th&gt;Stykpris&lt;/th&gt;
-            &lt;th&gt;Antal&lt;/th&gt;
-            &lt;th&gt;Total pris&lt;/th&gt;
-            &lt;th&gt;Slet&lt;/th&gt;
-            &lt;th&gt;Gaveindpakning&lt;/th&gt;
-            &lt;th&gt;Tilbagevendende ordre&lt;/th&gt;
-          &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;ItemList /&gt;
-      &lt;/table&gt;
-    &lt;/div&gt;
+    &lt;&gt;
+        &lt;button onClick={NavigateTo}&gt;{props.children}&lt;/button&gt;
+    &lt;/&gt;
   );
 }
 &nbsp;</pre></td></tr></table></pre>

@@ -1,40 +1,22 @@
-import { useEffect, useState } from 'react';
 import CustomerInfoInput from '../../components/CustomerInfoInput/CustomerInfoInput';
 import CustomerAgreePrefsInput from '../../components/CustomerAgreePrefsInput/CustomerAgreePrefsInput';
-import { Link } from "react-router-dom";
-import { Item , CustomerInfo} from "../../types/types";
-
-interface Props {
-    items: Item[];
-}
+import NavigateButton from '../../components/NavigateButton/NavigateButton';
+import { useCart } from '../../context/CartContext';
+import { useCustomer } from '../../context/UserContext';
 
 
 
-export default function Checkout(props: Props) {
-    const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
-        country: "denmark",
-        zipCode: "",
-        city: "",
-        adress: "",
-        phoneNr: "",
-        name: "",
-        email: "",
-        companyName: "",
-        vatNumber: ""
-    })
-    const [customerAgreePrefs, setCustomerAgreePrefs] = useState({
-        toc: false,
-        marketingEmails: false,
-        prefs: ""
-    })
-    const test = async () => {
+
+export default function Checkout() {
+    const {customerInfo} = useCustomer()
+    const { items } = useCart()
+    const pay = async () => {
         const headers = new Headers()
         headers.append("Content-Type", "application/json")
 
         const body = {
-        "customerInfo": JSON.stringify(customerInfo),
-        "customerAgreePrefs": JSON.stringify(customerAgreePrefs),
-        "shoppingCart": JSON.stringify(props.items)
+        "customerInfo": customerInfo,
+        "shoppingCart": items
         }
 
         const options = {
@@ -49,14 +31,12 @@ export default function Checkout(props: Props) {
 
     return (
         <>
-            <CustomerInfoInput customerInfo={customerInfo} setCustomerInfo={setCustomerInfo} />
-            <CustomerAgreePrefsInput customerAgreePrefs={customerAgreePrefs} setCustomerAgreePrefs={setCustomerAgreePrefs}/>
-            <button>
-                <Link to="/">Gå Tilbage</Link>
-            </button>
-            { customerAgreePrefs.toc && customerInfo.country && customerInfo.zipCode && customerInfo.city && customerInfo.adress && customerInfo.phoneNr && customerInfo.name && customerInfo.email? <button onClick={test}>
-                <Link to="/payment">Betal</Link>
-            </button> : <button disabled>Betal</button>
+            <CustomerInfoInput />
+            <CustomerAgreePrefsInput/>
+            <NavigateButton to={"/"}>Gå Tilbage</NavigateButton>
+            { customerInfo.toc && customerInfo.country && customerInfo.zipCode && customerInfo.city && customerInfo.adress && customerInfo.phoneNr.length == 8 && customerInfo.name && (customerInfo.vatNumber.length == 0 || customerInfo.vatNumber.length == 8) && customerInfo.email.includes("@")? <button onClick={pay}>
+                Gå Til Betaling
+            </button> : <button disabled>Gå Til Betaling</button>
             }
 
         </>

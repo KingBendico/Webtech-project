@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import { useState } from "react";
 import { describe, expect, it } from "vitest";
 import ShoppingCartTable from "./ShoppingCartTable";
 
@@ -7,11 +6,7 @@ import ShoppingCartTable from "./ShoppingCartTable";
 
 describe(ShoppingCartTable.name, () => {
   it("should render", () => {
-    const items:any = []
-  const setItems = () =>{
-
-  }
-    render(<ShoppingCartTable items={items} setItems={setItems} />);
+    render(<ShoppingCartTable/>);
     expect(screen.getByText("Indkøbskurv")).toBeInTheDocument();
     expect(screen.getByText("Vare")).toBeInTheDocument();
     expect(screen.getByText("Stykpris")).toBeInTheDocument();

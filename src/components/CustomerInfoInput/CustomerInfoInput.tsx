@@ -1,15 +1,11 @@
-import { CustomerInfo } from "../../types/types";
+
+import { useCustomer } from "../../context/UserContext";
 import "./style.css";
 
-interface Props {
-  customerInfo: CustomerInfo;
-  setCustomerInfo: (customerInfo: CustomerInfo) => void;
-}
 
-export default function customerInfoInput({
-  customerInfo,
-  setCustomerInfo,
-}: Props) {
+
+export default function customerInfoInput() {
+  const {customerInfo, setCustomerInfo} = useCustomer()
   const handleAdressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCustomerInfo({ ...customerInfo, adress: e.target.value });
   };
@@ -62,7 +58,7 @@ export default function customerInfoInput({
         }
       }
 
-      const data = await fetch(
+      return fetch(
         "https://api.dataforsyningen.dk/postnumre?nr=" + value
       )
         .then((response) => response.json())
@@ -77,7 +73,6 @@ export default function customerInfoInput({
           return city;
         })
         .catch((err) => console.log(err));
-      return data;
     } catch (e) {
       console.log("hej", e);
     }
@@ -87,9 +82,10 @@ export default function customerInfoInput({
     <div className="container">
       <form>
         <div>
-          <label>Land</label>
+          <label htmlFor="country">*Land</label>
           <select
             name="country"
+            id="country"
             onChange={handleCountryChange}
             value={customerInfo.country}
           >
@@ -98,55 +94,61 @@ export default function customerInfoInput({
             <option value="norway">Norge</option>
           </select>
         </div>
-
-        <label>Post nummer</label>
+        <br/>
+        <label htmlFor="zip-code">*Post nummer</label><br/>
         <input
           name="zip-code"
           value={customerInfo.zipCode}
           type="number"
           onChange={handleZipCodeChange}
-        />
-        <label>By</label>
+        /><br/>
+        <label htmlFor="city">*By</label><br/>
         {customerInfo.country == "denmark" ? (
-          <input name="city" value={customerInfo.city} disabled />
+          <input name="city" id="city" value={customerInfo.city} disabled />
         ) : (
-          <input name="city" value={customerInfo.city} />
-        )}
-        <label>Adresse</label>
+          <input name="city" id="city" value={customerInfo.city} />
+        )}<br/>
+        <label htmlFor="address">*Adresse</label><br/>
         <input
           name="address"
+          id="address"
           value={customerInfo.adress}
           onChange={handleAdressChange}
-        />
-        <label>Telefon Nummer</label>
+        /><br/>
+        <label htmlFor="phone-number">*Telefon Nummer</label><br/>
         <input
           name="phone-number"
+          id="phone-number"
           type="number"
           value={customerInfo.phoneNr}
           onChange={handlePhoneNrChange}
-        />
-        <label>Navn</label>
+        /><br/>
+        <label htmlFor="name">*Navn</label><br/>
         <input
           name="name"
+          id="name"
           value={customerInfo.name}
           onChange={handleNameChange}
-        />
-        <label>Email</label>
+        /><br/>
+        <label htmlFor="email">*Email</label>
         <input
           name="email"
+          id="email"
           type="email"
           value={customerInfo.email}
           onChange={handleEmailChange}
         />
-        <label>Firma navn</label>
+        <label htmlFor="company-name">Firma navn</label>
         <input
           name="company-name"
+          id="company-name"
           value={customerInfo.companyName}
           onChange={handleCompanyNameChange}
         />
-        <label>CVR nummer</label>
+        <label htmlFor="vat-number">CVR nummer</label>
         <input
           name="vat-number"
+          id="vat-number"
           value={customerInfo.vatNumber}
           onChange={handleVatNumberChange}
         />
