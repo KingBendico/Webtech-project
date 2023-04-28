@@ -86,65 +86,81 @@ export default function customerInfoInput({
   return (
     <div className="container">
       <form>
-        <div>
+        <div className="label-wrapper">
           <label>Land</label>
-          <select
-            name="country"
-            onChange={handleCountryChange}
-            value={customerInfo.country}
-          >
-            <option value="denmark">Danmark</option>
-            <option value="sweeden">Sverige</option>
-            <option value="norway">Norge</option>
-          </select>
         </div>
+        <select
+          name="country"
+          onChange={handleCountryChange}
+          value={customerInfo.country}
+        >
+          <option value="denmark">Danmark</option>
+          <option value="sweeden">Sverige</option>
+          <option value="norway">Norge</option>
+        </select>
 
-        <label>Post nummer</label>
+        <div className="label-wrapper">
+          <label>Post nummer</label>
+        </div>
         <input
           name="zip-code"
           value={customerInfo.zipCode}
           type="number"
           onChange={handleZipCodeChange}
         />
-        <label>By</label>
+        <div className="label-wrapper">
+          <label>By</label>
+        </div>
         {customerInfo.country == "denmark" ? (
           <input name="city" value={customerInfo.city} disabled />
         ) : (
           <input name="city" value={customerInfo.city} />
         )}
-        <label>Adresse</label>
+        <div className="label-wrapper">
+          <label>Adresse</label>
+        </div>
         <input
           name="address"
           value={customerInfo.adress}
           onChange={handleAdressChange}
         />
-        <label>Telefon Nummer</label>
+        <div className="label-wrapper">
+          <label>Telefon Nummer</label>
+        </div>
         <input
           name="phone-number"
           type="number"
           value={customerInfo.phoneNr}
           onChange={handlePhoneNrChange}
         />
-        <label>Navn</label>
+        <div className="label-wrapper">
+          <label>Navn</label>
+        </div>
         <input
           name="name"
           value={customerInfo.name}
           onChange={handleNameChange}
         />
-        <label>Email</label>
+        <div className="label-wrapper">
+          <label>Email</label>
+        </div>
         <input
           name="email"
           type="email"
           value={customerInfo.email}
           onChange={handleEmailChange}
         />
-        <label>Firma navn</label>
+        <div className="label-wrapper">
+          <label>Firma navn</label>
+        </div>
         <input
           name="company-name"
           value={customerInfo.companyName}
           onChange={handleCompanyNameChange}
         />
-        <label>CVR nummer</label>
+        <div className="label-wrapper">
+          <label>CVR nummer</label>
+        </div>
         <input
           name="vat-number"
           value={customerInfo.vatNumber}

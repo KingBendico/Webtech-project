@@ -1,6 +1,19 @@
 @media screen and (min-width: 768px) {
-    .container {
+    form {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 2fr 1fr 2fr;
+        gap: 1rem;
     }
+
+    .label-wrapper {
+        display: flex;
+        justify-content: end;
+    }
+
+    .label-wrapper label {
+        width: 60%;
+        text-align: left;
+    }
+
+
 }
