@@ -25,8 +25,8 @@ export default function Checkout() {
         body: JSON.stringify(body),
         }
 
-        const respone = fetch("https://eozzd62ocjr82sr.m.pipedream.net", options)
-        console.log(await respone)
+        const respone = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options)
+        
     }
 
     return (
