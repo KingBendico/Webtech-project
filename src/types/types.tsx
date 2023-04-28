@@ -27,4 +27,19 @@ interface CustomerAgreePrefs {
   marketingEmails:boolean,
   prefs:string
 }
+
+
+interface BillingAddress {
+  company: string;
+  vatNumber: string;
+}
+
+interface PaymentState {
+  amount: number;
+  giftCardNumber: number | null;
+  phoneNumber: number | null;
+  billingAddress: BillingAddress | null;
+  paymentMethod: 'MobilePay' | 'GiftCard' | 'Invoice' | null;
+}
+
 export type { Item, CustomerInfo, CustomerAgreePrefs };
