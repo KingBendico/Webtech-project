@@ -1,8 +1,5 @@
 import ItemList from "../ItemList/ItemList";
-import { Item } from "../../types/types";
-import { useCart } from '../../context/CartContext';
 import "./style.css";
-
 
 export default function ShoppingCartTable() {
   return (

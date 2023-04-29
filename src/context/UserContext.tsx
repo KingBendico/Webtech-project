@@ -2,8 +2,8 @@ import { createContext, useContext } from "react";
 import { CustomerInfo } from "../types/types";
 
 type UserContextType = {
-    customerInfo: CustomerInfo;
-    setCustomerInfo: React.Dispatch<React.SetStateAction<CustomerInfo>>;
+  customerInfo: CustomerInfo;
+  setCustomerInfo: React.Dispatch<React.SetStateAction<CustomerInfo>>;
 };
 
 export const CustomerContext = createContext<UserContextType>({
@@ -19,10 +19,9 @@ export const CustomerContext = createContext<UserContextType>({
     vatNumber: "",
     toc: false,
     marketingEmails: false,
-    prefs: ""
-},
-  setCustomerInfo: () => {}
+    prefs: "",
+  },
+  setCustomerInfo: () => {},
 });
 
 export const useCustomer = () => useContext(CustomerContext);
-

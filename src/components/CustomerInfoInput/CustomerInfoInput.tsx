@@ -91,6 +91,18 @@ export default function customerInfoInput() {
           </select>
         </div>
         <div className="label-wrapper">
+          <label htmlFor="phone-number">Telefon Nummer</label>
+          <br />
+          <input
+            name="phone-number"
+            id="phone-number"
+            type="number"
+            value={customerInfo.phoneNr}
+            onChange={handlePhoneNrChange}
+            required
+          />
+        </div>
+        <div className="label-wrapper">
           <label htmlFor="zip-code">Post nummer</label>
           <input
             name="zip-code"
@@ -117,18 +129,6 @@ export default function customerInfoInput() {
             id="address"
             value={customerInfo.adress}
             onChange={handleAdressChange}
-            required
-          />
-        </div>
-        <div className="label-wrapper">
-          <label htmlFor="phone-number">Telefon Nummer</label>
-          <br />
-          <input
-            name="phone-number"
-            id="phone-number"
-            type="number"
-            value={customerInfo.phoneNr}
-            onChange={handlePhoneNrChange}
             required
           />
         </div>
