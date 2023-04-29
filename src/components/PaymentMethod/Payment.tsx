@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { Item} from "../../types/types";
-
-interface Props {
-  items: Item[];
-}
 
 
-type PaymentMethod = 'MobilePay' | 'GiftCard' | 'Invoice';
+type PaymentMethod = 'Card'|'MobilePay' | 'GiftCard' | 'Invoice';
 
 interface PaymentState {
   amount: number;
@@ -20,7 +15,7 @@ interface PaymentState {
   paymentMethod: PaymentMethod | null;
 }
 
-export default function Payment(props: Props) {
+export default function Payment() {
   const [state, setState] = useState<PaymentState>({
     amount: 0,
     giftCardNumber: null,
@@ -104,24 +99,6 @@ export default function Payment(props: Props) {
     : null;
 
 
-
-    const [mobilePayChecked, setMobilePayChecked] = React.useState(false);
-    
-    const handleMobilePayChange = () => {
-      setMobilePayChecked(!mobilePayChecked);
-    };
-
-    const mobilePayContent = mobilePayChecked 
-    
-    ?  <div>
-    <label htmlFor="phoneNumber">Phone Number:</label>
-    <input id="phoneNumber" type="string" onChange={handlePhoneNumberChange} />
-  </div>
-
-      
-    : null;
-
-
   return (
     <>
    
@@ -141,12 +118,8 @@ export default function Payment(props: Props) {
         <div>
         <label>
           <input type="radio"    
-          checked={mobilePayChecked}
-          onChange={handleMobilePayChange} 
-          name="myRadio" value="MobilePay" />
-          
+          name="myRadio" value="MobilePay" />    
           MobilePay
-         {mobilePayContent}
         </label>
         </div>
 
@@ -157,16 +130,9 @@ export default function Payment(props: Props) {
         </label>
         </div>
       
-      <hr />
+  
       
-      <div>
-        <label htmlFor="company">Company:</label>
-        <input id="company" type="text" onChange={handleCompanyChange} />
-      </div>
-      <div>
-        <label htmlFor="vatNumber">CVR-nummer:</label>
-        <input id="vatNumber" type="text" onChange={handleVatNumberChange} />
-      </div>
+
       <div>
         <label>
           <input 

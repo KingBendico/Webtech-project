@@ -6,8 +6,8 @@ export default function Checkout() {
   return (
     <>
       <CustomerInfoInput />
-      <CustomerAgreePrefsInput />
       <Payment />
+      <CustomerAgreePrefsInput />
     </>
   );
 }
