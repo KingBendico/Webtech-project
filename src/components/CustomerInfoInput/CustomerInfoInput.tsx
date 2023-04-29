@@ -107,6 +107,7 @@ export default function customerInfoInput() {
               name="phone-number"
               id="phone-number"
               type="number"
+              placeholder="Indtast tlf.nr."
               value={customerInfo.phoneNr}
               onChange={handlePhoneNrChange}
               required
@@ -119,6 +120,7 @@ export default function customerInfoInput() {
             <input
               name="zip-code"
               value={customerInfo.zipCode}
+              placeholder="Indtast post nr."
               type="number"
               onChange={handleZipCodeChange}
               required
@@ -135,6 +137,7 @@ export default function customerInfoInput() {
               <input
                 className="required"
                 name="city"
+                placeholder="Indtast bynavn"
                 id="city"
                 value={customerInfo.city}
                 required
@@ -149,6 +152,7 @@ export default function customerInfoInput() {
             <input
               name="address"
               id="address"
+              placeholder="Indtast adresse"
               value={customerInfo.adress}
               onChange={handleAdressChange}
               required
@@ -163,6 +167,7 @@ export default function customerInfoInput() {
             <input
               name="name"
               id="name"
+              placeholder="Indtast navn"
               value={customerInfo.name}
               onChange={handleNameChange}
               required
@@ -176,6 +181,7 @@ export default function customerInfoInput() {
               name="email"
               id="email"
               type="email"
+              placeholder="Indtast email"
               value={customerInfo.email}
               onChange={handleEmailChange}
               required
@@ -186,6 +192,7 @@ export default function customerInfoInput() {
             <input
               name="company-name"
               id="company-name"
+              placeholder="Indtast firmanavn"
               value={customerInfo.companyName}
               onChange={handleCompanyNameChange}
             />
@@ -195,6 +202,7 @@ export default function customerInfoInput() {
             <input
               name="vat-number"
               id="vat-number"
+              placeholder="Indtast CVR nr."
               value={customerInfo.vatNumber}
               onChange={handleVatNumberChange}
             />
