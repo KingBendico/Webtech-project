@@ -9,6 +9,9 @@
     text-align: right;
     padding: 2px 5px;
     margin: 2px;
+}
+
+.summary p#total {
     font-weight: bolder;
 }
 

@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import { Item} from "../../types/types";
+import React, { useState } from "react";
 
-interface Props {
-  items: Item[];
-}
-
-
-type PaymentMethod = 'MobilePay' | 'GiftCard' | 'Invoice';
+type PaymentMethod = "MobilePay" | "GiftCard" | "Invoice";
 
 interface PaymentState {
   amount: number;
@@ -20,7 +13,7 @@ interface PaymentState {
   paymentMethod: PaymentMethod | null;
 }
 
-export default function Payment(props: Props) {
+export default function Payment() {
   const [state, setState] = useState<PaymentState>({
     amount: 0,
     giftCardNumber: null,
@@ -34,12 +27,16 @@ export default function Payment(props: Props) {
     setState((prevState) => ({ ...prevState, amount }));
   };
 
-  const handleGiftCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleGiftCardNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const giftCardNumber = event.target.value;
     setState((prevState) => ({ ...prevState, giftCardNumber }));
   };
 
-  const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePhoneNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const phoneNumber = event.target.value;
     setState((prevState) => ({ ...prevState, phoneNumber }));
   };
@@ -55,7 +52,9 @@ export default function Payment(props: Props) {
     }));
   };
 
-  const handleVatNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleVatNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const vatNumber = event.target.value;
     setState((prevState) => ({
       ...prevState,
@@ -70,8 +69,10 @@ export default function Payment(props: Props) {
     setState((prevState) => ({ ...prevState, paymentMethod }));
   };
 
-  const canPayWithMobilePay = state.phoneNumber !== null && state.phoneNumber.length === 8;
-  const canPayWithInvoice = state.billingAddress !== null && state.billingAddress.vatNumber !== '';
+  const canPayWithMobilePay =
+    state.phoneNumber !== null && state.phoneNumber.length === 8;
+  const canPayWithInvoice =
+    state.billingAddress !== null && state.billingAddress.vatNumber !== "";
 
   const canPayWithGiftCard =
     state.giftCardNumber !== null &&
@@ -79,86 +80,80 @@ export default function Payment(props: Props) {
     state.giftCardNumber.length > 0 &&
     state.amount.toString().length > 0;
 
-    const [giftCardChecked, setGiftCardChecked] = React.useState(false);
-    const handleGiftCardChange = () => {
-      setGiftCardChecked(!giftCardChecked);
-    };
+  const [giftCardChecked, setGiftCardChecked] = React.useState(false);
+  const handleGiftCardChange = () => {
+    setGiftCardChecked(!giftCardChecked);
+  };
 
-    const giftCardContent = giftCardChecked 
-    
-    ?  
-
+  const giftCardContent = giftCardChecked ? (
     <div>
-        <label htmlFor="giftCardNumber">Gavekortkode:</label>
-        <input id="giftCardNumber" type="string" onChange={handleGiftCardNumberChange} />
-      
+      <label htmlFor="giftCardNumber">Gavekortkode:</label>
+      <input
+        id="giftCardNumber"
+        type="string"
+        onChange={handleGiftCardNumberChange}
+      />
 
-    <div>
+      <div>
         <label htmlFor="amount">Beløb:</label>
         <input id="amount" type="number" onChange={handleAmountChange} />
       </div>
-      
-      </div>
+    </div>
+  ) : null;
 
-      
-    : null;
+  const [mobilePayChecked, setMobilePayChecked] = React.useState(false);
 
+  const handleMobilePayChange = () => {
+    setMobilePayChecked(!mobilePayChecked);
+  };
 
-
-    const [mobilePayChecked, setMobilePayChecked] = React.useState(false);
-    
-    const handleMobilePayChange = () => {
-      setMobilePayChecked(!mobilePayChecked);
-    };
-
-    const mobilePayContent = mobilePayChecked 
-    
-    ?  <div>
-    <label htmlFor="phoneNumber">Phone Number:</label>
-    <input id="phoneNumber" type="string" onChange={handlePhoneNumberChange} />
-  </div>
-
-      
-    : null;
-
+  const mobilePayContent = mobilePayChecked ? (
+    <div>
+      <label htmlFor="phoneNumber">Phone Number:</label>
+      <input
+        id="phoneNumber"
+        type="string"
+        onChange={handlePhoneNumberChange}
+      />
+    </div>
+  ) : null;
 
   return (
     <>
-   
       <h1>Betaling</h1>
 
       <hr />
-      <p>
-      Vælg betalingsmetode:
-      </p>
+      <p>Vælg betalingsmetode:</p>
       <div>
         <label>
           <input type="radio" name="myRadio" value="Kort" />
           Kort
         </label>
-        </div>
-        
-        <div>
-        <label>
-          <input type="radio"    
-          checked={mobilePayChecked}
-          onChange={handleMobilePayChange} 
-          name="myRadio" value="MobilePay" />
-          
-          MobilePay
-         {mobilePayContent}
-        </label>
-        </div>
+      </div>
 
-        <div>
+      <div>
+        <label>
+          <input
+            type="radio"
+            checked={mobilePayChecked}
+            onChange={handleMobilePayChange}
+            name="myRadio"
+            value="MobilePay"
+          />
+          MobilePay
+          {mobilePayContent}
+        </label>
+      </div>
+
+      <div>
         <label>
           <input type="radio" name="myRadio" value="Faktura" />
           Faktura
         </label>
-        </div>
-      
+      </div>
+
       <hr />
-      
+
       <div>
         <label htmlFor="company">Company:</label>
         <input id="company" type="text" onChange={handleCompanyChange} />
@@ -169,17 +164,15 @@ export default function Payment(props: Props) {
       </div>
       <div>
         <label>
-          <input 
-          type="checkbox"
-          checked={giftCardChecked}
-          onChange={handleGiftCardChange} 
+          <input
+            type="checkbox"
+            checked={giftCardChecked}
+            onChange={handleGiftCardChange}
           />
-            Brug gavekort
-         {giftCardContent}
-          </label>
-         
-        </div>
-        
-        </>
+          Brug gavekort
+          {giftCardContent}
+        </label>
+      </div>
+    </>
   );
 }
