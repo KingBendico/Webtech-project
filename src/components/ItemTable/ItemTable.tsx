@@ -102,24 +102,7 @@ export default function ItemTable(props: Props) {
               +
             </button>
           </td>
-          <td>
-            {totalQuantityRebatePrice[index].toLocaleString("da-DK", {
-              style: "currency",
-              currency: "DKK",
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          </td>
-          <td>
-            <button
-              data-testid="delete"
-              style={{ all: "unset", cursor: "pointer" }}
-              onClick={() => onDeleteItem(index)}
-            >
-              &#10060;
-            </button>
-          </td>
-          <td>
+          <td className="gift-wrap">
             <input
               data-testid="gift-wrap"
               type="checkbox"
@@ -158,6 +141,15 @@ export default function ItemTable(props: Props) {
                 Årligt
               </option>
             </select>
+          </td>
+          <td>
+            <button
+              className="delete"
+              data-testid="delete"
+              onClick={() => onDeleteItem(index)}
+            >
+              X
+            </button>
           </td>
         </tr>
       ))}

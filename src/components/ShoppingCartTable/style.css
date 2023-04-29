@@ -1,5 +1,11 @@
 h1 {
     margin: 0;
-    padding: 2rem 2rem 2rem 2.5rem;
     text-align: left;
+    padding-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        padding: 2rem 2rem 2rem 2.5rem;
+    }
 }

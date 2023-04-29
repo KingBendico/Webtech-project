@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
 
 import "./style.css";
 
@@ -14,8 +13,6 @@ interface PaymentState {
     vatNumber?: string;
   } | null;
   paymentMethod: PaymentMethod | null;
-
-
 }
 
 export default function Payment() {
@@ -91,12 +88,12 @@ export default function Payment() {
   };
 
   const giftCardContent = giftCardChecked ? (
-    <div className="giftcard-wrapper">
+    <div>
       <div className="input-grid">
         <label htmlFor="giftCardNumber">Gavekortkode:</label>
         <input
           id="giftCardNumber"
-          type="text"
+          type="string"
           onChange={handleGiftCardNumberChange}
         />
       </div>
@@ -104,173 +101,156 @@ export default function Payment() {
         <label htmlFor="amount">Beløb:</label>
         <input id="amount" type="number" onChange={handleAmountChange} />
       </div>
-      
-      </div>
+    </div>
+  ) : null;
 
-      
-    : null;
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardHolder, setCardHolder] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvv, setCvv] = useState("");
 
+  const handleSubmit = () => {
+    // submission logic here
+  };
 
+  const [selectedOption, setSelectedOption] = useState("");
 
-    const [cardNumber, setCardNumber] = useState('');
-    const [cardHolder, setCardHolder] = useState('');
-    const [expiryDate, setExpiryDate] = useState('');
-    const [cvv, setCvv] = useState('');
+  const handleCardChange = () => {
+    setSelectedOption("card");
+  };
 
-    const handleSubmit = () => {
-  
-      // submission logic here
-    };
+  const handleMobilePayChange = () => {
+    setSelectedOption("mobilePay");
+  };
 
-      
-const [selectedOption, setSelectedOption] = useState('');
+  const handleInvoiceChange = () => {
+    setSelectedOption("receipt");
+  };
 
-    const handleCardChange = () => {
-      setSelectedOption('Kort');
-    };
-  
-    const handleMobilePayChange = () => {
-      setSelectedOption('MobilePay');
-    };
-
-    const handleInvoiceChange = () => {
-      setSelectedOption('Faktura');
-    };
-
-  
   const renderContent = () => {
     switch (selectedOption) {
-      case 'Kort':
+      case "card":
         return (
           <>
-          <hr />
-          <form onSubmit={handleSubmit}>
-          <label htmlFor="cardNumber">Kortnummer:</label>
-          <input
-            type="text"
-            id="cardNumber"
-            name="cardNumber"
-            value={cardNumber}
-            onChange={(event) => setCardNumber(event.target.value)}
-            required
-          />
-          <label htmlFor="cardHolder">Kortholder:</label>
-          <input
-            type="text"
-            id="cardHolder"
-            name="cardHolder"
-            value={cardHolder}
-            onChange={(event) => setCardHolder(event.target.value)}
-            required
-          />
-          <label htmlFor="expiryDate">Udløbsdato:</label>
-          <input
-            type="text"
-            id="expiryDate"
-            name="expiryDate"
-            value={expiryDate}
-            onChange={(event) => setExpiryDate(event.target.value)}
-            required
-          />
-          <label htmlFor="cvv">Kontrolcifre (CVC):</label>
-          <input
-            type="text"
-            id="cvv"
-            name="cvv"
-            value={cvv}
-            onChange={(event) => setCvv(event.target.value)}
-            required
-          />
-          <button type="submit">Submit</button>
-        </form>
-        </>
-        );
-      case 'MobilePay':
-        return (
-          <>
-          <hr />
-        <p>Du har valgt at betale med MobilePay.</p>
-        </>
-        );
-        case 'Faktura':
-          return (
-            <>
             <hr />
-          <p>Du har valgt at betale med Faktura.</p>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="cardNumber">Kortnummer:</label>
+              <input
+                type="text"
+                id="cardNumber"
+                name="cardNumber"
+                value={cardNumber}
+                onChange={(event) => setCardNumber(event.target.value)}
+                required
+              />
+              <label htmlFor="cardHolder">Kortholder:</label>
+              <input
+                type="text"
+                id="cardHolder"
+                name="cardHolder"
+                value={cardHolder}
+                onChange={(event) => setCardHolder(event.target.value)}
+                required
+              />
+              <label htmlFor="expiryDate">Udløbsdato:</label>
+              <input
+                type="text"
+                id="expiryDate"
+                name="expiryDate"
+                value={expiryDate}
+                onChange={(event) => setExpiryDate(event.target.value)}
+                required
+              />
+              <label htmlFor="cvv">Kontrolcifre (CVC):</label>
+              <input
+                type="text"
+                id="cvv"
+                name="cvv"
+                value={cvv}
+                onChange={(event) => setCvv(event.target.value)}
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
           </>
-          );
+        );
+      case "mobilePay":
+        return (
+          <>
+            <hr />
+            <p>Du har valgt at betale med MobilePay.</p>
+          </>
+        );
+      case "reciept":
+        return (
+          <>
+            <hr />
+            <p>Du har valgt at betale med Faktura.</p>
+          </>
+        );
       default:
         return null;
     }
   };
 
-
   return (
     <>
       <div className="header-wrapper">
-        <h1>Betaling</h1>
-
-      <hr />
-      <p>
-      Vælg betalingsmetode:
-      </p>
-      <div>
-        <label>
-          <input 
-          type="radio" 
-          name="myRadio" 
-          value="Kort"
-          checked={selectedOption === 'Kort'}
-          onChange={handleCardChange}
-
-         
-           
-          
-          
-          
-          />
-          Kort
-          
-        </label>
+        <h1>Betalingsmetode</h1>
+        <hr />
+      </div>
+      <div className="payment-wrapper">
+        <div className="paymentmethod-wrapper">
+          <p>Vælg betalingsmetode:</p>
+          <div>
+            <input
+              id="payment-card"
+              type="radio"
+              name="myRadio"
+              value="card"
+              checked={selectedOption === "card"}
+              onChange={handleCardChange}
+            />
+            <label htmlFor="payment-card">Betalingskort</label>
+          </div>
+          <div>
+            <input
+              id="payment-mobilepay"
+              type="radio"
+              name="myRadio"
+              value="MobilePay"
+              checked={selectedOption === "mobilePay"}
+              onChange={handleMobilePayChange}
+            />
+            <label htmlFor="payment-mobilepay">MobilePay</label>
+          </div>
+          <div>
+            <input
+              id="payment-receipt"
+              type="radio"
+              name="myRadio"
+              value="reciept"
+              checked={selectedOption === "receipt"}
+              onChange={handleInvoiceChange}
+            />
+            <label htmlFor="payment-receipt">Faktura</label>
+          </div>
         </div>
+        <div className="paymentdetails-wrapper">{renderContent()}</div>
 
-        <div>
-        <label>
-          <input 
-          type="radio"    
-          name="myRadio" 
-          value="MobilePay"
-          checked={selectedOption === 'MobilePay'}
-          onChange={handleMobilePayChange}
-
-          />    
-          MobilePay
-        </label>
+        <div className="giftcard-wrapper">
+          <div>
+            <input
+              id="giftcard-cb"
+              type="checkbox"
+              checked={giftCardChecked}
+              onChange={handleGiftCardChange}
+            />
+            <label htmlFor="giftcard-cb">Brug gavekort</label>
+          </div>
+          {giftCardContent}
         </div>
-
-        <div>
-        <label>
-          <input type="radio" 
-          name="myRadio" 
-          value="Faktura" 
-          checked={selectedOption === 'Faktura'}
-          onChange={handleInvoiceChange}
-          />
-          Faktura
-        </label>
-        </div>
-
-        <div>
-          <input
-            id="giftcard-cb"
-            type="checkbox"
-            checked={giftCardChecked}
-            onChange={handleGiftCardChange}
-          />
-          <label htmlFor="giftcard-cb">Brug gavekort</label>
-        </div>
-        
-        {renderContent()}
-        </>
+      </div>
+    </>
   );
 }

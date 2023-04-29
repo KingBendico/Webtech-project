@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.71% </span>
+                <span class="strong">96.2% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>134/140</span>
+                <span class='fraction'>152/158</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.71% </span>
+                <span class="strong">96.2% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>134/140</span>
+                <span class='fraction'>152/158</span>
             </div>
         
             
@@ -203,7 +203,25 @@
 <a name='L138'></a><a href='#L138'>138</a>
 <a name='L139'></a><a href='#L139'>139</a>
 <a name='L140'></a><a href='#L140'>140</a>
-<a name='L141'></a><a href='#L141'>141</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -292,6 +310,24 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
@@ -362,7 +398,7 @@ export default function ItemTable(props: Props) {
     onToggleGiftWrap,
     onRecurringScheduleChange,
   } = props;
-  const { items } = useCart()
+  const { items } = useCart();
 &nbsp;
   const totalQuantityRebatePrice = items.map((item) =&gt; {
     // Check if price and quantity are valid numbers
@@ -433,29 +469,18 @@ export default function ItemTable(props: Props) {
 <span class="cstat-no" title="statement not covered" >            ) : (</span>
 <span class="cstat-no" title="statement not covered" >              ""</span>
             )}
-            &lt;button data-testid="quantity-minus" onClick={<span class="fstat-no" title="function not covered" >() =&gt; onQuantityChange(item, item.quantity - 1)}&gt;</span>
+            &lt;button
+              data-testid="quantity-minus"
+              onClick={<span class="fstat-no" title="function not covered" >() =&gt; onQuantityChange(item, item.quantity - 1)}</span>
+            &gt;
               -
             &lt;/button&gt;
             {item.quantity}
-            &lt;button data-testid="quantity-plus" onClick={() =&gt; onQuantityChange(item, item.quantity + 1)}&gt;
-              +
-            &lt;/button&gt;
-          &lt;/td&gt;
-          &lt;td&gt;
-            {totalQuantityRebatePrice[index].toLocaleString("da-DK", {
-              style: "currency",
-              currency: "DKK",
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          &lt;/td&gt;
-          &lt;td&gt;
             &lt;button
-              data-testid="delete"
-              style={{ all: "unset", cursor: "pointer" }}
-              onClick={() =&gt; onDeleteItem(index)}
+              data-testid="quantity-plus"
+              onClick={() =&gt; onQuantityChange(item, item.quantity + 1)}
             &gt;
-              &amp;#10060;
+              +
             &lt;/button&gt;
           &lt;/td&gt;
           &lt;td&gt;
@@ -466,18 +491,47 @@ export default function ItemTable(props: Props) {
               onChange={() =&gt; onToggleGiftWrap(item)}
             /&gt;
           &lt;/td&gt;
-          &lt;select
-            data-testid="recurring-schedule"
-            value={item.recurringSchedule}
-            onChange={(e) =&gt; onRecurringScheduleChange(item, e.target.value)}
-          &gt;
-            &lt;option data-testid="recurring-schedule-option" value=""&gt;Vælg en plan&lt;/option&gt;
-            &lt;option data-testid="recurring-schedule-option" value="Ugentligt"&gt;Ugentligt&lt;/option&gt;
-            &lt;option data-testid="recurring-schedule-option" value="Månedligt"&gt;Månedligt&lt;/option&gt;
-            &lt;option data-testid="recurring-schedule-option" value="Hver 3. måned"&gt;Hver 3. måned&lt;/option&gt;
-            &lt;option data-testid="recurring-schedule-option" value="Hver 6. måned"&gt;Hver 6. måned&lt;/option&gt;
-            &lt;option data-testid="recurring-schedule-option" value="Årligt"&gt;Årligt&lt;/option&gt;
-          &lt;/select&gt;
+          &lt;td&gt;
+            &lt;select
+              data-testid="recurring-schedule"
+              value={item.recurringSchedule}
+              onChange={(e) =&gt; onRecurringScheduleChange(item, e.target.value)}
+            &gt;
+              &lt;option data-testid="recurring-schedule-option" value=""&gt;
+                Vælg en plan
+              &lt;/option&gt;
+              &lt;option data-testid="recurring-schedule-option" value="Ugentligt"&gt;
+                Ugentligt
+              &lt;/option&gt;
+              &lt;option data-testid="recurring-schedule-option" value="Månedligt"&gt;
+                Månedligt
+              &lt;/option&gt;
+              &lt;option
+                data-testid="recurring-schedule-option"
+                value="Hver 3. måned"
+              &gt;
+                Hver 3. måned
+              &lt;/option&gt;
+              &lt;option
+                data-testid="recurring-schedule-option"
+                value="Hver 6. måned"
+              &gt;
+                Hver 6. måned
+              &lt;/option&gt;
+              &lt;option data-testid="recurring-schedule-option" value="Årligt"&gt;
+                Årligt
+              &lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/td&gt;
+          &lt;td&gt;
+            &lt;button
+              data-testid="delete"
+              style={{ all: "unset", cursor: "pointer" }}
+              onClick={() =&gt; onDeleteItem(index)}
+            &gt;
+              X
+            &lt;/button&gt;
+          &lt;/td&gt;
         &lt;/tr&gt;
       ))}
     &lt;/tbody&gt;
@@ -490,7 +544,7 @@ export default function ItemTable(props: Props) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-28T09:01:52.853Z
+                at 2023-04-29T21:15:19.398Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

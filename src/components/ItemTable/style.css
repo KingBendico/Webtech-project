@@ -2,6 +2,12 @@ table, th, td {
     border-collapse: collapse;
     margin: 0 auto;
     text-align: left;
+    table-layout: auto;
+    width: auto;
+}
+
+table th {
+    font-weight: 700;
 }
 
 table tr:hover,
@@ -13,15 +19,45 @@ table tr:nth-child(even) {
     background-color: var(--secondary-color);
 }
 
-table td, table th {
-    padding: 12px 16px;
-}
-
 table td button {
-    margin: 0 5px;
-    padding: 2px 6px;
     background-color: unset;
     cursor: pointer;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--accent-color);
     border-radius: 25%;
 }
+
+table td button.delete {
+    font-weight: 700;
+}
+table td button.delete:hover {
+    color: var(--validation-red-color);
+    border-color: var(--validation-red-color);
+}
+
+table td.gift-wrap {
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+    table, tbody, tr, td {
+        display: block;
+    }
+
+    thead, th {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    table td, table th {
+        padding: 12px 16px;
+    }
+
+    table td button {
+        margin: 0 5px;
+        padding: 2px 6px;
+    }
+}
+
+
+

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/ShoppingCarSummary/ShoppingCartSummary.tsx</title>
+    <title>Code coverage report for components/ShoppingCartSummary/ShoppingCartSummary.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/ShoppingCarSummary</a> ShoppingCartSummary.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/ShoppingCartSummary</a> ShoppingCartSummary.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60.24% </span>
+                <span class="strong">62.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>50/83</span>
+                <span class='fraction'>56/90</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60.24% </span>
+                <span class="strong">62.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>50/83</span>
+                <span class='fraction'>56/90</span>
             </div>
         
             
@@ -146,7 +146,14 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -161,6 +168,13 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -189,19 +203,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -229,9 +238,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Item } from "../../types/types";
-import { Link } from "react-router-dom";
-import NavigateButton from "../NavigateButton/NavigateButton";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import NavigateButton from "../NavigateButton/NavigateButton";
 import "./style.css";
 import { useCart } from "../../context/CartContext";
 &nbsp;
@@ -243,48 +255,52 @@ const currencyFormat = {
 };
 &nbsp;
 export default function ShoppingCartSummary() {
-  const { items } = useCart()
+  const { items } = useCart();
 &nbsp;
-  const totalQuantityRebatePriceAccumulated = items.reduce(
-    (accumulator, item) =&gt; {
-<span class="cstat-no" title="statement not covered" >      // Check if price and quantity are valid numbers</span>
-<span class="cstat-no" title="statement not covered" >      if (typeof item.price !== "number" || typeof item.quantity !== "number") {</span>
-<span class="cstat-no" title="statement not covered" >        return accumulator;</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
+  const totalPrice = items.reduce((accumulator, item) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (typeof item.price !== "number" || typeof item.quantity !== "number") {</span>
+<span class="cstat-no" title="statement not covered" >      return accumulator;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // Calculate the total price before rebate</span>
-<span class="cstat-no" title="statement not covered" >      const totalPrice = item.price * item.quantity;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // Check if rebateQuantity and rebatePercent are valid numbers or 0</span>
-<span class="cstat-no" title="statement not covered" >      if (</span>
-<span class="cstat-no" title="statement not covered" >        typeof item.rebateQuantity !== "number" ||</span>
-<span class="cstat-no" title="statement not covered" >        item.rebateQuantity === 0 ||</span>
-<span class="cstat-no" title="statement not covered" >        typeof item.rebatePercent !== "number"</span>
-<span class="cstat-no" title="statement not covered" >      ) {</span>
-<span class="cstat-no" title="statement not covered" >        return accumulator + totalPrice;</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // Calculate the number of rebate units applicable</span>
-<span class="cstat-no" title="statement not covered" >      const rebateUnits = Math.floor(item.quantity / item.rebateQuantity);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // Calculate the total rebate amount</span>
-<span class="cstat-no" title="statement not covered" >      const rebateAmount =</span>
-<span class="cstat-no" title="statement not covered" >        rebateUnits *</span>
-<span class="cstat-no" title="statement not covered" >        item.rebateQuantity *</span>
-<span class="cstat-no" title="statement not covered" >        item.price *</span>
-<span class="cstat-no" title="statement not covered" >        (item.rebatePercent / 100);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // Calculate the final price after rebate</span>
-<span class="cstat-no" title="statement not covered" >      const finalPrice = totalPrice - rebateAmount;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      return accumulator + finalPrice;</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-    0
-  );
+<span class="cstat-no" title="statement not covered" >    // Calculate the total price</span>
+<span class="cstat-no" title="statement not covered" >    const totalPrice = item.price * item.quantity;</span>
+<span class="cstat-no" title="statement not covered" >    return accumulator + totalPrice;</span>
+  }, 0);
 &nbsp;
-  const totalWith10PercentDiscount =
+  const rebateAmount = items.reduce((accumulator, item) =&gt; {
+<span class="cstat-no" title="statement not covered" >    // Check if price and quantity are valid numbers</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof item.price !== "number" || typeof item.quantity !== "number") {</span>
+<span class="cstat-no" title="statement not covered" >      return accumulator;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // Check if rebateQuantity and rebatePercent are valid numbers or 0</span>
+<span class="cstat-no" title="statement not covered" >    if (</span>
+<span class="cstat-no" title="statement not covered" >      typeof item.rebateQuantity !== "number" ||</span>
+<span class="cstat-no" title="statement not covered" >      item.rebateQuantity === 0 ||</span>
+<span class="cstat-no" title="statement not covered" >      typeof item.rebatePercent !== "number"</span>
+<span class="cstat-no" title="statement not covered" >    ) {</span>
+<span class="cstat-no" title="statement not covered" >      return accumulator + 0;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // Calculate the number of rebate units applicable</span>
+<span class="cstat-no" title="statement not covered" >    const rebateUnits = Math.floor(item.quantity / item.rebateQuantity);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // Calculate the total rebate amount</span>
+<span class="cstat-no" title="statement not covered" >    const rebateAmount =</span>
+<span class="cstat-no" title="statement not covered" >      rebateUnits *</span>
+<span class="cstat-no" title="statement not covered" >      item.rebateQuantity *</span>
+<span class="cstat-no" title="statement not covered" >      item.price *</span>
+<span class="cstat-no" title="statement not covered" >      (item.rebatePercent / 100);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    return accumulator + rebateAmount;</span>
+  }, 0);
+&nbsp;
+  const totalQuantityRebatePriceAccumulated = totalPrice - rebateAmount;
+&nbsp;
+  const TenPercentDiscountAmount =
     totalQuantityRebatePriceAccumulated &gt;= <span class="branch-0 cbranch-no" title="branch not covered" >300</span>
-<span class="cstat-no" title="statement not covered" >      ? totalQuantityRebatePriceAccumulated * 0.9</span>
+<span class="cstat-no" title="statement not covered" >      ? totalQuantityRebatePriceAccumulated -</span>
+<span class="cstat-no" title="statement not covered" >        totalQuantityRebatePriceAccumulated * 0.9</span>
       : totalQuantityRebatePriceAccumulated;
 &nbsp;
   return (
@@ -292,20 +308,25 @@ export default function ShoppingCartSummary() {
       &lt;div className="summary"&gt;
         &lt;p&gt;
           Pris i alt uden rabat:{" "}
-          {items
-            .reduce((total, item) =&gt; total + item.price * item.quantity, 0)
-            .toLocaleString("da-DK", currencyFormat)}{" "}
+          {totalPrice.toLocaleString("da-DK", currencyFormat)}{" "}
         &lt;/p&gt;
         &lt;p&gt;
-          Pris med rabat:{" "}
-          {totalQuantityRebatePriceAccumulated.toLocaleString(
+          Rabat på enkelte varer:{" "}
+          {(-1 * rebateAmount).toLocaleString("da-DK", currencyFormat)}
+        &lt;/p&gt;
+        &lt;p&gt;
+          10% rabat på ordrer over 300 kr.:{" "}
+          {(-1 * TenPercentDiscountAmount).toLocaleString(
             "da-DK",
             currencyFormat
           )}
         &lt;/p&gt;
-        &lt;p&gt;
-          10% rabat på ordrer over 300 kr.:{" "}
-          {totalWith10PercentDiscount.toLocaleString("da-DK", currencyFormat)}
+        &lt;hr /&gt;
+        &lt;p id="total"&gt;
+          Total beløb:{" "}
+          {(
+            totalQuantityRebatePriceAccumulated - TenPercentDiscountAmount
+          ).toLocaleString("da-DK", currencyFormat)}
         &lt;/p&gt;
         &lt;NavigateButton to="/checkout"&gt;Gå Til Kassen&lt;/NavigateButton&gt;
       &lt;/div&gt;
@@ -319,7 +340,7 @@ export default function ShoppingCartSummary() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-28T09:01:52.853Z
+                at 2023-04-29T21:15:19.398Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

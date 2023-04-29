@@ -77,9 +77,15 @@ export default function customerInfoInput() {
     <>
       <div className="container">
         <h1>Leveringsoplysninger</h1>
+        <hr />
+        <p>
+          Felter markeret med <span className="required"></span> skal udfyldes!
+        </p>
         <form>
           <div className="label-wrapper">
-            <label htmlFor="country">Land</label>
+            <label htmlFor="country" className="required">
+              Land
+            </label>
             <select
               name="country"
               id="country"
@@ -93,7 +99,9 @@ export default function customerInfoInput() {
             </select>
           </div>
           <div className="label-wrapper">
-            <label htmlFor="phone-number">Telefon Nummer</label>
+            <label htmlFor="phone-number" className="required">
+              Telefonnummer
+            </label>
             <br />
             <input
               name="phone-number"
@@ -105,7 +113,9 @@ export default function customerInfoInput() {
             />
           </div>
           <div className="label-wrapper">
-            <label htmlFor="zip-code">Post nummer</label>
+            <label htmlFor="zip-code" className="required">
+              Post nummer
+            </label>
             <input
               name="zip-code"
               value={customerInfo.zipCode}
@@ -115,16 +125,26 @@ export default function customerInfoInput() {
             />
           </div>
           <div className="label-wrapper">
-            <label htmlFor="city">By</label>
+            <label htmlFor="city" className="required">
+              By
+            </label>
             <br />
             {customerInfo.country == "denmark" ? (
               <input name="city" id="city" value={customerInfo.city} disabled />
             ) : (
-              <input name="city" id="city" value={customerInfo.city} required />
+              <input
+                className="required"
+                name="city"
+                id="city"
+                value={customerInfo.city}
+                required
+              />
             )}
           </div>
           <div className="label-wrapper">
-            <label htmlFor="address">Adresse</label>
+            <label htmlFor="address" className="required">
+              Adresse
+            </label>
             <br />
             <input
               name="address"
@@ -136,7 +156,9 @@ export default function customerInfoInput() {
           </div>
           <div className="label-wrapper">
             <br />
-            <label htmlFor="name">Navn</label>
+            <label htmlFor="name" className="required">
+              Navn
+            </label>
             <br />
             <input
               name="name"
@@ -147,7 +169,9 @@ export default function customerInfoInput() {
             />
           </div>
           <div className="label-wrapper">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="required">
+              Email
+            </label>
             <input
               name="email"
               id="email"

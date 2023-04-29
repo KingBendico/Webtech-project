@@ -3,22 +3,23 @@ import "./style.css";
 
 export default function ShoppingCartTable() {
   return (
-    <div>
+    <>
       <h1>Indkøbskurv</h1>
+      <hr />
       <table>
         <thead>
           <tr>
             <th>Vare</th>
             <th>Stykpris</th>
             <th>Antal</th>
-            <th>Total pris</th>
-            <th>Slet</th>
             <th>Gaveindpakning</th>
             <th>Tilbagevendende ordre</th>
+            <th>Slet</th>
           </tr>
         </thead>
         <ItemList />
       </table>
-    </div>
+      <hr />
+    </>
   );
 }

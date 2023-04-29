@@ -1,18 +1,7 @@
-.summary {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: right;
-}
-
-.summary p {
-    flex-basis: 100%;
-    text-align: right;
-    padding: 2px 5px;
-    margin: 2px;
-}
-
 .summary p#total {
     font-weight: 700;
+    font-family: "Roboto Condensed";
+    font-size: x-large;
 }
 
 .summary button {
@@ -24,4 +13,20 @@
 .summary button:hover {
     background-color: var(--secondary-color);
     color: var(--validation-green-color);
+}
+
+@media screen and (min-width: 768px) {
+    .summary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
+    }
+    
+    .summary p {
+        flex-basis: 100%;
+        text-align: right;
+        padding: 2px 5px;
+        margin: 2px;
+    }
+
 }
