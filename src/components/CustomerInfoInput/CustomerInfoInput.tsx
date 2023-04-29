@@ -74,6 +74,10 @@ export default function customerInfoInput() {
   };
 
   return (
+    <>
+    <hr />
+    <div><h1>1. Mine oplysninger</h1></div>
+
     <div className="container">
       <form>
         <div className="label-wrapper">
@@ -91,7 +95,7 @@ export default function customerInfoInput() {
           </select>
         </div>
         <div className="label-wrapper">
-          <label htmlFor="phone-number">Telefon Nummer</label>
+          <label htmlFor="phone-number">Telefonnummer</label>
           <br />
           <input
             name="phone-number"
@@ -175,5 +179,6 @@ export default function customerInfoInput() {
         </div>
       </form>
     </div>
+    </>
   );
 }

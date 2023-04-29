@@ -39,8 +39,14 @@ export default function CustomerAgreePrefsInput() {
   };
 
   return (
+    <>
+    <hr />
+    <div><h1>3. Acceptér handelsbetingelser</h1></div>
+    
     <div className="wrapper">
+ 
       <div className="input-wrapper">
+       
         <input
           name="toc"
           type="checkbox"
@@ -97,5 +103,6 @@ export default function CustomerAgreePrefsInput() {
         )}
       </div>
     </div>
+    </>
   );
 }
