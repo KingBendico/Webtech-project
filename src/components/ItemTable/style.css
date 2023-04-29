@@ -38,12 +38,18 @@ table td.gift-wrap {
     text-align: center;
 }
 
+table .product-image img {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+}
+
 @media screen and (max-width: 400px) {
     table, tbody, tr, td {
         display: block;
     }
 
-    thead, th {
+    thead, th, table .product-image {
         display: none;
     }
 }

@@ -1,7 +1,7 @@
 import { Item } from "../../types/types";
+import { useCart } from "../../context/CartContext";
 import catalogue from "../../../json_data/item_catalogue.json";
 import "./style.css";
-import { useCart } from "../../context/CartContext";
 
 interface Props {
   onDeleteItem: (index: number) => void;
@@ -57,6 +57,9 @@ export default function ItemTable(props: Props) {
     <tbody data-testid="table">
       {items.map((item, index) => (
         <tr key={item.id}>
+          <td className="product-image">
+            <img src={"/images/" + item.id + ".svg"} alt="Produkt billede" />
+          </td>
           <td>
             {item.upsellProductId &&
             items.filter((w) => w.id === item.upsellProductId).length === 0 ? (

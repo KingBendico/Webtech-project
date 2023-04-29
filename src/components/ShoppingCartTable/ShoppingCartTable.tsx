@@ -9,6 +9,7 @@ export default function ShoppingCartTable() {
       <table>
         <thead>
           <tr>
+            <th></th>
             <th>Vare</th>
             <th>Stykpris</th>
             <th>Antal</th>
