@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { Item} from "../../types/types";
 
-interface Props {
-  items: Item[];
-}
+
 
 
 type PaymentMethod = 'MobilePay' | 'GiftCard' | 'Invoice';

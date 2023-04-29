@@ -88,11 +88,11 @@ export default function CustomerAgreePrefsInput() {
           customerInfo.vatNumber.length == 8) &&
         customerInfo.email.includes("@") ? (
           <button id="pay" onClick={pay}>
-            Gå Til Betaling
+            Betal
           </button>
         ) : (
           <button id="pay" disabled>
-            Gå Til Betaling
+            Betal
           </button>
         )}
       </div>

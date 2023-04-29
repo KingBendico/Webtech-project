@@ -1,9 +1,9 @@
 import { createContext, useContext } from "react";
-import { customerInfo } from "../types/types";
+import { CustomerInfo } from "../types/types";
 
 type UserContextType = {
-    customerInfo: customerInfo;
-    setCustomerInfo: React.Dispatch<React.SetStateAction<customerInfo>>;
+    customerInfo: CustomerInfo;
+    setCustomerInfo: React.Dispatch<React.SetStateAction<CustomerInfo>>;
 };
 
 export const CustomerContext = createContext<UserContextType>({
