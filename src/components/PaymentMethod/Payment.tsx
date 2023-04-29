@@ -107,8 +107,8 @@ export default function Payment() {
     const [expiryDate, setExpiryDate] = useState('');
     const [cvv, setCvv] = useState('');
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
+    const handleSubmit = () => {
+  
       // submission logic here
     };
 
