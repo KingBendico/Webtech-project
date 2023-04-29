@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
+import React, { useState } from "react";
+import { render } from "react-dom";
 
+import "./style.css";
 
-type PaymentMethod = 'Card'|'MobilePay' | 'GiftCard' | 'Invoice';
+type PaymentMethod = "Card" | "MobilePay" | "GiftCard" | "Invoice";
 
 interface PaymentState {
   amount: number;
@@ -29,12 +30,16 @@ export default function Payment() {
     setState((prevState) => ({ ...prevState, amount }));
   };
 
-  const handleGiftCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleGiftCardNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const giftCardNumber = event.target.value;
     setState((prevState) => ({ ...prevState, giftCardNumber }));
   };
 
-  const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePhoneNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const phoneNumber = event.target.value;
     setState((prevState) => ({ ...prevState, phoneNumber }));
   };
@@ -50,7 +55,9 @@ export default function Payment() {
     }));
   };
 
-  const handleVatNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleVatNumberChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const vatNumber = event.target.value;
     setState((prevState) => ({
       ...prevState,
@@ -65,8 +72,10 @@ export default function Payment() {
     setState((prevState) => ({ ...prevState, paymentMethod }));
   };
 
-  const canPayWithMobilePay = state.phoneNumber !== null && state.phoneNumber.length === 8;
-  const canPayWithInvoice = state.billingAddress !== null && state.billingAddress.vatNumber !== '';
+  const canPayWithMobilePay =
+    state.phoneNumber !== null && state.phoneNumber.length === 8;
+  const canPayWithInvoice =
+    state.billingAddress !== null && state.billingAddress.vatNumber !== "";
 
   const canPayWithGiftCard =
     state.giftCardNumber !== null &&
@@ -74,78 +83,69 @@ export default function Payment() {
     state.giftCardNumber.length > 0 &&
     state.amount.toString().length > 0;
 
-    const [giftCardChecked, setGiftCardChecked] = React.useState(false);
-    const handleGiftCardChange = () => {
-      setGiftCardChecked(!giftCardChecked);
-    };
+  const [giftCardChecked, setGiftCardChecked] = React.useState(false);
+  const handleGiftCardChange = () => {
+    setGiftCardChecked(!giftCardChecked);
+  };
 
-    const giftCardContent = giftCardChecked 
-    
-    ?  
-
-    <div>
+  const giftCardContent = giftCardChecked ? (
+    <div className="giftcard-wrapper">
+      <div className="input-grid">
         <label htmlFor="giftCardNumber">Gavekortkode:</label>
-        <input id="giftCardNumber" type="string" onChange={handleGiftCardNumberChange} />
-      
-
-    <div>
+        <input
+          id="giftCardNumber"
+          type="text"
+          onChange={handleGiftCardNumberChange}
+        />
+      </div>
+      <div className="input-grid">
         <label htmlFor="amount">Beløb:</label>
         <input id="amount" type="number" onChange={handleAmountChange} />
       </div>
-      
-      </div>
-
-      
-    : null;
-
+    </div>
+  ) : null;
 
   return (
     <>
-   
-      <h1>Betaling</h1>
+      <div className="header-wrapper">
+        <h1>Betaling</h1>
 
-      <hr />
-      <p>
-      Vælg betalingsmetode:
-      </p>
-      <div>
-        <label>
-          <input type="radio" name="myRadio" value="Kort" />
-          Kort
-        </label>
-        </div>
-        
+        <hr />
+      </div>
+      <div className="payment-wrapper">
+        <p>Vælg betalingsmetode:</p>
         <div>
-        <label>
-          <input type="radio"    
-          name="myRadio" value="MobilePay" />    
-          MobilePay
-        </label>
+          <input id="giftcard-card" type="radio" name="myRadio" value="Kort" />
+          <label htmlFor="giftcard-card">Betalingskort</label>
         </div>
 
         <div>
-        <label>
-          <input type="radio" name="myRadio" value="Faktura" />
-          Faktura
-        </label>
+          <input id="mobilepay" type="radio" name="myRadio" value="MobilePay" />
+          <label htmlFor="giftcard-mobilepay">MobilePay</label>
         </div>
-      
-  
-      
 
-      <div>
-        <label>
-          <input 
-          type="checkbox"
-          checked={giftCardChecked}
-          onChange={handleGiftCardChange} 
+        <div>
+          <input
+            id="giftcard-reciept"
+            type="radio"
+            name="myRadio"
+            value="Faktura"
           />
-            Brug gavekort
-         {giftCardContent}
-          </label>
-         
+          <label htmlFor="giftcard-reciept">Faktura</label>
         </div>
-        
-        </>
+
+        <div>
+          <input
+            id="giftcard-cb"
+            type="checkbox"
+            checked={giftCardChecked}
+            onChange={handleGiftCardChange}
+          />
+          <label htmlFor="giftcard-cb">Brug gavekort</label>
+        </div>
+
+        {giftCardContent}
+      </div>
+    </>
   );
 }

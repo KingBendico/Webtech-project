@@ -39,63 +39,65 @@ export default function CustomerAgreePrefsInput() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="input-wrapper">
-        <input
-          name="toc"
-          type="checkbox"
-          checked={customerInfo.toc}
-          onChange={handleTocChange}
-        />
-        <label htmlFor="toc">Jeg accepterer vilkår og salgsbetingelser</label>
+    <>
+      <div className="wrapper">
+        <div className="input-wrapper">
+          <input
+            name="toc"
+            type="checkbox"
+            checked={customerInfo.toc}
+            onChange={handleTocChange}
+          />
+          <label htmlFor="toc">Jeg accepterer vilkår og salgsbetingelser</label>
+        </div>
+        <div className="input-wrapper">
+          <input
+            name="marketingEmails"
+            id="marketingEmails"
+            type="checkbox"
+            checked={customerInfo.marketingEmails}
+            onChange={handleMarketingEmailsChange}
+          />
+          <label htmlFor="marketingEmails">
+            Vil du modtage emails omkring gode tilbud?
+          </label>
+        </div>
+        <div className="comment-wrapper">
+          <label htmlFor="prefs">
+            Har du nogle instrukser til vores leverandør?
+          </label>
+          <br />
+          <textarea
+            name="prefs"
+            id="prefs"
+            value={customerInfo.prefs}
+            onChange={handlePrefsChange}
+          />
+        </div>
       </div>
-      <div className="input-wrapper">
-        <input
-          name="marketingEmails"
-          id="marketingEmails"
-          type="checkbox"
-          checked={customerInfo.marketingEmails}
-          onChange={handleMarketingEmailsChange}
-        />
-        <label htmlFor="marketingEmails">
-          Vil du modtage emails omkring gode tilbud?
-        </label>
-      </div>
-      <div className="comment-wrapper">
-        <label htmlFor="prefs">
-          Har du nogle instrukser til vores leverandør?
-        </label>
-        <br />
-        <textarea
-          name="prefs"
-          id="prefs"
-          value={customerInfo.prefs}
-          onChange={handlePrefsChange}
-        />
-      </div>
-      <div className="wrapper-navigation">
-        <NavigateButton id="back" to={"/"}>
-          Gå Tilbage
-        </NavigateButton>
-        {customerInfo.toc &&
-        customerInfo.country &&
-        customerInfo.zipCode &&
-        customerInfo.city &&
-        customerInfo.adress &&
-        customerInfo.phoneNr.length == 8 &&
-        customerInfo.name &&
-        (customerInfo.vatNumber.length == 0 ||
-          customerInfo.vatNumber.length == 8) &&
-        customerInfo.email.includes("@") ? (
-          <button id="pay" onClick={pay}>
-            Betal
-          </button>
-        ) : (
-          <button id="pay" disabled>
-            Betal
-          </button>
-        )}
-      </div>
-    </div>
+        <div className="wrapper-navigation">
+          <NavigateButton id="back" to={"/"}>
+            Gå Tilbage
+          </NavigateButton>
+          {customerInfo.toc &&
+          customerInfo.country &&
+          customerInfo.zipCode &&
+          customerInfo.city &&
+          customerInfo.adress &&
+          customerInfo.phoneNr.length == 8 &&
+          customerInfo.name &&
+          (customerInfo.vatNumber.length == 0 ||
+            customerInfo.vatNumber.length == 8) &&
+          customerInfo.email.includes("@") ? (
+            <button id="pay" onClick={pay}>
+              Betal
+            </button>
+          ) : (
+            <button id="pay" disabled>
+              Betal
+            </button>
+          )}
+        </div>
+    </>
   );
 }

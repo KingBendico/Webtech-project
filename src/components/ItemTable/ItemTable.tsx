@@ -17,7 +17,7 @@ export default function ItemTable(props: Props) {
     onToggleGiftWrap,
     onRecurringScheduleChange,
   } = props;
-  const { items } = useCart()
+  const { items } = useCart();
 
   const totalQuantityRebatePrice = items.map((item) => {
     // Check if price and quantity are valid numbers
@@ -88,11 +88,17 @@ export default function ItemTable(props: Props) {
             ) : (
               ""
             )}
-            <button data-testid="quantity-minus" onClick={() => onQuantityChange(item, item.quantity - 1)}>
+            <button
+              data-testid="quantity-minus"
+              onClick={() => onQuantityChange(item, item.quantity - 1)}
+            >
               -
             </button>
             {item.quantity}
-            <button data-testid="quantity-plus" onClick={() => onQuantityChange(item, item.quantity + 1)}>
+            <button
+              data-testid="quantity-plus"
+              onClick={() => onQuantityChange(item, item.quantity + 1)}
+            >
               +
             </button>
           </td>
@@ -121,18 +127,38 @@ export default function ItemTable(props: Props) {
               onChange={() => onToggleGiftWrap(item)}
             />
           </td>
-          <select
-            data-testid="recurring-schedule"
-            value={item.recurringSchedule}
-            onChange={(e) => onRecurringScheduleChange(item, e.target.value)}
-          >
-            <option data-testid="recurring-schedule-option" value="">Vælg en plan</option>
-            <option data-testid="recurring-schedule-option" value="Ugentligt">Ugentligt</option>
-            <option data-testid="recurring-schedule-option" value="Månedligt">Månedligt</option>
-            <option data-testid="recurring-schedule-option" value="Hver 3. måned">Hver 3. måned</option>
-            <option data-testid="recurring-schedule-option" value="Hver 6. måned">Hver 6. måned</option>
-            <option data-testid="recurring-schedule-option" value="Årligt">Årligt</option>
-          </select>
+          <td>
+            <select
+              data-testid="recurring-schedule"
+              value={item.recurringSchedule}
+              onChange={(e) => onRecurringScheduleChange(item, e.target.value)}
+            >
+              <option data-testid="recurring-schedule-option" value="">
+                Vælg en plan
+              </option>
+              <option data-testid="recurring-schedule-option" value="Ugentligt">
+                Ugentligt
+              </option>
+              <option data-testid="recurring-schedule-option" value="Månedligt">
+                Månedligt
+              </option>
+              <option
+                data-testid="recurring-schedule-option"
+                value="Hver 3. måned"
+              >
+                Hver 3. måned
+              </option>
+              <option
+                data-testid="recurring-schedule-option"
+                value="Hver 6. måned"
+              >
+                Hver 6. måned
+              </option>
+              <option data-testid="recurring-schedule-option" value="Årligt">
+                Årligt
+              </option>
+            </select>
+          </td>
         </tr>
       ))}
     </tbody>

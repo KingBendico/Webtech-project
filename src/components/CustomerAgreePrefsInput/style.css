@@ -4,6 +4,7 @@
     align-items: baseline;
     gap: 1rem;
     margin-left: 7%;
+    margin-top: 3rem;
 }
 
 .input-wrapper {
@@ -15,16 +16,20 @@
     padding-left: 4px;
 }
 
-.comment-wrapper input {
+.comment-wrapper textarea {
     width: 100%;
+    resize: none;
     margin-top: 1rem;
 }
 
 .wrapper-navigation {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     gap: 1rem;
-    width: 100%;
+    width: 95%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: fit-content;
 }
 
 .wrapper-navigation #back {
