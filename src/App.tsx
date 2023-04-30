@@ -59,15 +59,3 @@ function App() {
 }
 
 export default App;
-
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/">
-//           <Route index element={<ShoppingCart items={items} setItems={setItems}/>} />
-//           <Route path="checkout" element={<Checkout items={items} />} />
-//         </Route>
-//       </Routes>
-//
-//     </BrowserRouter>
-//   );
