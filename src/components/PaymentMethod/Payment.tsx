@@ -132,7 +132,6 @@ export default function Payment() {
       case "card":
         return (
           <>
-            <hr />
             <form onSubmit={handleSubmit}>
               <label htmlFor="cardNumber">Kortnummer:</label>
               <input
@@ -177,19 +176,17 @@ export default function Payment() {
       case "mobilePay":
         return (
           <>
-            <hr />
             <p>Du har valgt at betale med MobilePay.</p>
           </>
         );
       case "invoice":
         return (
           <>
-            <hr />
             <p>Du har valgt at betale med Faktura.</p>
           </>
         );
       default:
-        return null;
+        return <p>Vælg en betalingsmetode for at fortsætte.</p>;
     }
   };
 
@@ -235,21 +232,21 @@ export default function Payment() {
             />
             <label htmlFor="payment-receipt">Faktura</label>
           </div>
+
+          <div className="giftcard-wrapper">
+            <div>
+              <input
+                id="giftcard-cb"
+                type="checkbox"
+                checked={giftCardChecked}
+                onChange={handleGiftCardChange}
+              />
+              <label htmlFor="giftcard-cb">Brug gavekort</label>
+            </div>
+            {giftCardContent}
+          </div>
         </div>
         <div className="paymentdetails-wrapper">{renderContent()}</div>
-
-        <div className="giftcard-wrapper">
-          <div>
-            <input
-              id="giftcard-cb"
-              type="checkbox"
-              checked={giftCardChecked}
-              onChange={handleGiftCardChange}
-            />
-            <label htmlFor="giftcard-cb">Brug gavekort</label>
-          </div>
-          {giftCardContent}
-        </div>
       </div>
     </>
   );

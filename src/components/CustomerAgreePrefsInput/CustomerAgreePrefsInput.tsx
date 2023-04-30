@@ -40,7 +40,7 @@ export default function CustomerAgreePrefsInput() {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="customeragree-wrapper">
         <div className="input-wrapper">
           <input
             name="toc"
@@ -75,29 +75,29 @@ export default function CustomerAgreePrefsInput() {
           />
         </div>
       </div>
-        <div className="wrapper-navigation">
-          <NavigateButton id="back" to={"/"}>
-            Gå Tilbage
-          </NavigateButton>
-          {customerInfo.toc &&
-          customerInfo.country &&
-          customerInfo.zipCode &&
-          customerInfo.city &&
-          customerInfo.adress &&
-          customerInfo.phoneNr.length == 8 &&
-          customerInfo.name &&
-          (customerInfo.vatNumber.length == 0 ||
-            customerInfo.vatNumber.length == 8) &&
-          customerInfo.email.includes("@") ? (
-            <button id="pay" onClick={pay}>
-              Betal
-            </button>
-          ) : (
-            <button id="pay" disabled>
-              Betal
-            </button>
-          )}
-        </div>
+      <div className="navigation-wrapper">
+        <NavigateButton id="back" to={"/"}>
+          Gå Tilbage
+        </NavigateButton>
+        {customerInfo.toc &&
+        customerInfo.country &&
+        customerInfo.zipCode &&
+        customerInfo.city &&
+        customerInfo.adress &&
+        customerInfo.phoneNr.length == 8 &&
+        customerInfo.name &&
+        (customerInfo.vatNumber.length == 0 ||
+          customerInfo.vatNumber.length == 8) &&
+        customerInfo.email.includes("@") ? (
+          <button id="pay" onClick={pay}>
+            Betal
+          </button>
+        ) : (
+          <button id="pay" disabled>
+            Betal
+          </button>
+        )}
+      </div>
     </>
   );
 }

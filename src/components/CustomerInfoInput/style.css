@@ -8,17 +8,23 @@
         text-align: left;
         margin: 0;
     }
+
+    .customerinput-wrapper {
+        margin: 0 3rem;
+        padding: 2rem 0;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
     
     form {
         display: grid;
         grid-template-columns: 1fr 1fr ;
-        gap: 2rem;
-        margin-bottom: 3rem;
+        gap: 1.5rem;
     }
 
     .label-wrapper {
         display: flex;
-        justify-content: end;
+        justify-content: center;
     }
 
     .label-wrapper label {

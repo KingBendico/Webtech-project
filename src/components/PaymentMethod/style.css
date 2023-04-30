@@ -6,20 +6,35 @@
     }
 
     .payment-wrapper div {
-        padding: 0.3rem 0;
         text-align: left;
     }
 
+    .paymentmethod-wrapper div {
+        padding: 0.3rem 0;
+    }
+
     .payment-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: baseline;
-        margin-left: 35%;
-        margin-top: 3rem;
+        display: grid;
+        gap: 0.5rem;
+        margin: 3rem;
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-template-columns: 1fr 1fr;
     }
 
     .payment-wrapper p {
         margin-top: 0;
+    }
+
+    .paymentmethod-wrapper,
+    .paymentdetails-wrapper {
+        padding: 1.5rem 3rem;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    .paymentdetails-wrapper {
+        grid-column-start: 2;
     }
 
     .giftcard-wrapper{
