@@ -167,20 +167,57 @@ export default function Payment() {
           <>
             <p>Du har valgt at betale med MobilePay.</p>
           </>
-        );} else {
+        );}
+        
+        if (customerInfo.phoneNr.length>0 && customerInfo.phoneNr.length<8) {
+          return (
+            <>
+              <p>Du kan ikke betale med MobilePay, da du ikke har indtastet et gyldigt telefonnummer.</p>
+            </>
+          );}
+        
+        else {
 
           return (
             <>
-              <p>Du kan ikke betale med MobilePay, da du ikke har indtastet et telefonnummer under leveringsoplysninger</p>
+              <p>Du kan ikke betale med MobilePay, da du ikke har indtastet et telefonnummer under leveringsoplysninger.</p>
             </>
           );
         }
       case "invoice":
+
+      if (customerInfo.companyName.length===0 && customerInfo.vatNumber.length===0) {
         return (
           <>
-            <p>Du har valgt at betale med Faktura.</p>
+            <p>Du kan ikke betale med faktura uden at indtaste firmanavn og CVR-nummer under leveringsoplysninger.</p>
           </>
-        );
+        );}
+
+        if (customerInfo.companyName.length===0) {
+          return (
+            <>
+              <p>Du kan ikke betale med faktura uden at indtaste firmanavn under leveringsoplysninger.</p>
+            </>
+          );}
+
+          if (customerInfo.vatNumber.length===0) {
+            return (
+              <>
+                <p>Du kan ikke betale med faktura uden at indtaste CVR-nummer under leveringsoplysninger.</p>
+              </>
+            );}
+  
+
+          else {
+
+            return (
+              <>
+                <p>Du har valgt at betale med Faktura..</p>
+              </>
+            );
+          }
+
+
       default:
         return <p>Vælg en betalingsmetode for at fortsætte.</p>;
     }
