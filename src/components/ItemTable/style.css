@@ -50,6 +50,9 @@ table .product-image img {
     content:"*";
     color: var(--validation-green-color);
     font-size: x-large;
+}
+
+.upsell.animate {
     animation: blink 0.5s steps(3, start) 2;
 }
 

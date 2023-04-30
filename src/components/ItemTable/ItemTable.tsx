@@ -65,7 +65,7 @@ export default function ItemTable(props: Props) {
             {item.upsellProductId &&
             items.filter((w) => w.id === item.upsellProductId).length === 0 ? (
               <span
-                className="upsell"
+                className="upsell animate"
                 title={
                   "Måske er du også interesseret i produktet '" +
                   catalogue.find((w) => w.id === item.upsellProductId)?.name +
@@ -101,7 +101,7 @@ export default function ItemTable(props: Props) {
             </button>
             {item.rebateQuantity > item.quantity ? (
               <span
-                className="upsell"
+                className="upsell animate"
                 title={
                   "Køb " +
                   (item.rebateQuantity - item.quantity) +

@@ -6,6 +6,10 @@ export default function ShoppingCartTable() {
     <>
       <h1>Indkøbskurv</h1>
       <hr />
+      <p>
+        Tip: Hold musen over <span className="upsell"></span> for at se flere
+        oplysninger om rabat og produkter.
+      </p>
       <table>
         <thead>
           <tr>
