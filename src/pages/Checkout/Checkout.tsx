@@ -25,8 +25,12 @@ export default function Checkout() {
         body: JSON.stringify(body),
         }
 
-        const respone = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options)
-        
+        const response = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options)
+        if(response.ok){
+            // Navigate to success page
+        }else{
+            // Navigate to failed page
+        }
     }
 
     return (
