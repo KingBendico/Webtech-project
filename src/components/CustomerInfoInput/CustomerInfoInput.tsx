@@ -116,12 +116,12 @@ export default function customerInfoInput() {
             </div>
             <div className="label-wrapper">
               <label htmlFor="zip-code" className="required">
-                Post nummer
+                Postnummer
               </label>
               <input
                 name="zip-code"
                 value={customerInfo.zipCode}
-                placeholder="Indtast post nr."
+                placeholder="Indtast postnr."
                 type="number"
                 onChange={handleZipCodeChange}
                 required
@@ -194,7 +194,7 @@ export default function customerInfoInput() {
               />
             </div>
             <div className="label-wrapper">
-              <label htmlFor="company-name">Firma navn</label>
+              <label htmlFor="company-name">Firmanavn</label>
               <input
                 name="company-name"
                 id="company-name"
@@ -204,11 +204,11 @@ export default function customerInfoInput() {
               />
             </div>
             <div className="label-wrapper">
-              <label htmlFor="vat-number">CVR nummer</label>
+              <label htmlFor="vat-number">CVR-nummer</label>
               <input
                 name="vat-number"
                 id="vat-number"
-                placeholder="Indtast CVR nr."
+                placeholder="Indtast CVR-nr."
                 value={customerInfo.vatNumber}
                 onChange={handleVatNumberChange}
               />
