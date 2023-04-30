@@ -61,17 +61,20 @@ export default function ItemTable(props: Props) {
             <img src={"/images/" + item.id + ".svg"} alt="Produkt billede" />
           </td>
           <td>
+            {item.name}
             {item.upsellProductId &&
             items.filter((w) => w.id === item.upsellProductId).length === 0 ? (
-              <span>
-                Måske er du også interesseret i '
-                {catalogue.find((w) => w.id === item.upsellProductId)?.name}'?
-                <br></br>
-              </span>
+              <span
+                className="upsell"
+                title={
+                  "Måske er du også interesseret i produktet '" +
+                  catalogue.find((w) => w.id === item.upsellProductId)?.name +
+                  "'?"
+                }
+              ></span>
             ) : (
               ""
             )}
-            {item.name}
           </td>
           <td>
             {item.price.toLocaleString("da-DK", {
@@ -97,18 +100,29 @@ export default function ItemTable(props: Props) {
               +
             </button>
             {item.rebateQuantity > item.quantity ? (
-              <span className="upsell"></span>
+              <span
+                className="upsell"
+                title={
+                  "Køb " +
+                  (item.rebateQuantity - item.quantity) +
+                  " mere og få " +
+                  item.rebatePercent +
+                  "% rabat!"
+                }
+              ></span>
             ) : (
               ""
             )}
           </td>
           <td className="gift-wrap">
             <input
+              id={"checkbox-" + item.id}
               data-testid="gift-wrap"
               type="checkbox"
               checked={item.isGiftWrapped}
               onChange={() => onToggleGiftWrap(item)}
             />
+            <label htmlFor={"checkbox-" + item.id}>Gaveindpakning</label>
           </td>
           <td>
             <select

@@ -6,12 +6,13 @@ table, th, td {
 }
 
 table th {
+    text-align: left;
     font-weight: 700;
 }
 
 table tr:hover,
 table tr:nth-child(even):hover {
-    background-color: #F3F6F4;
+    background-color: var(--secondary-accent-color);
 }
 
 table tr:nth-child(even) {
@@ -25,16 +26,18 @@ table td button {
     border-radius: 25%;
 }
 
+table td button {
+    margin: 0 5px;
+    padding: 2px 6px;
+}
+
 table td button.delete {
     font-weight: 700;
 }
+
 table td button.delete:hover {
     color: var(--validation-red-color);
     border-color: var(--validation-red-color);
-}
-
-table td.gift-wrap {
-    text-align: center;
 }
 
 table .product-image img {
@@ -44,13 +47,15 @@ table .product-image img {
 }
 
 .upsell:after {
-    content:" *";
+    content:"*";
     color: var(--validation-green-color);
+    font-size: x-large;
 }
 
 @media screen and (max-width: 480px) {
     table, tbody, tr, td {
         display: block;
+        padding: 0.2rem;
     }
 
     thead, th, table .product-image {
@@ -60,14 +65,10 @@ table .product-image img {
 
 @media screen and (min-width: 768px) {
     table td, table th {
-        padding: 12px 16px;
+        padding: 0.4rem 1rem;
     }
 
-    table td button {
-        margin: 0 5px;
-        padding: 2px 6px;
+    table td.gift-wrap {
+        text-align: center;
     }
 }
-
-
-
