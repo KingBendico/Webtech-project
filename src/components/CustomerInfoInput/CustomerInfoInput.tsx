@@ -10,7 +10,9 @@ export default function customerInfoInput() {
     setCustomerInfo({ ...customerInfo, country: e.target.value });
   };
   const handlePhoneNrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomerInfo({ ...customerInfo, phoneNr: e.target.value });
+    if(e.target.value.length <= 8){
+      setCustomerInfo({ ...customerInfo, phoneNr: e.target.value });
+    }
   };
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCustomerInfo({ ...customerInfo, name: e.target.value });
@@ -19,10 +21,13 @@ export default function customerInfoInput() {
     setCustomerInfo({ ...customerInfo, email: e.target.value });
   };
   const handleCompanyNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomerInfo({ ...customerInfo, companyName: e.target.value });
+     setCustomerInfo({ ...customerInfo, companyName: e.target.value });
+    
   };
   const handleVatNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomerInfo({ ...customerInfo, vatNumber: e.target.value });
+    if(e.target.value.length <= 8){
+      setCustomerInfo({ ...customerInfo, vatNumber: e.target.value });
+    }
   };
 
   const handleZipCodeChange = async (
@@ -49,14 +54,23 @@ export default function customerInfoInput() {
         const cachedResponse = await cacheStorage.match(value);
 
         if (cachedResponse && cachedResponse.ok) {
-          try {
             return await cachedResponse.json();
-          } catch {}
         }
       }
+    } catch (e) {
+      console.log("cache is not avalible");
+    }
 
-      return fetch("https://api.dataforsyningen.dk/postnumre?nr=" + value)
-        .then((response) => response.json())
+      return fetch(
+        "https://api.dataforsyningen.dk/postnumre?nr=" + value
+      )
+        .then((response) => {
+          if(response.ok){
+            return response.json()
+          }else{
+            throw new Error()
+          }
+        })
         .then((body) => {
           const city = body[0].navn;
           if ("caches" in window) {
@@ -67,10 +81,8 @@ export default function customerInfoInput() {
           }
           return city;
         })
-        .catch((err) => console.log(err));
-    } catch (e) {
-      console.log("hej", e);
-    }
+        .catch(() => {console.log("Zip code does not exist"); return ""});
+  
   };
 
   return (

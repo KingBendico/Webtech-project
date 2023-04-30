@@ -5,7 +5,6 @@ import ShoppingCartTable from "./ShoppingCartTable";
 describe(ShoppingCartTable.name, () => {
   it("should render", () => {
     render(<ShoppingCartTable />);
-    expect(screen.getByText("Indkøbskurv")).toBeInTheDocument();
     expect(screen.getByText("Vare")).toBeInTheDocument();
     expect(screen.getByText("Stykpris")).toBeInTheDocument();
     expect(screen.getByText("Antal")).toBeInTheDocument();

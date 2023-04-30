@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.07% </span>
+                <span class="strong">55.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>141/256</span>
+                <span class='fraction'>141/253</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.07% </span>
+                <span class="strong">55.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>141/256</span>
+                <span class='fraction'>141/253</span>
             </div>
         
             
@@ -316,10 +316,7 @@
 <a name='L251'></a><a href='#L251'>251</a>
 <a name='L252'></a><a href='#L252'>252</a>
 <a name='L253'></a><a href='#L253'>253</a>
-<a name='L254'></a><a href='#L254'>254</a>
-<a name='L255'></a><a href='#L255'>255</a>
-<a name='L256'></a><a href='#L256'>256</a>
-<a name='L257'></a><a href='#L257'>257</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L254'></a><a href='#L254'>254</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -493,17 +490,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -701,7 +695,7 @@ export default function Payment() {
 <span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
   const handleInvoiceChange = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setSelectedOption("receipt");</span>
+<span class="cstat-no" title="statement not covered" >    setSelectedOption("invoice");</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
   const renderContent = () =&gt; {
@@ -709,7 +703,6 @@ export default function Payment() {
 <span class="branch-0 cbranch-no" title="branch not covered" >      case "card":</span>
 <span class="cstat-no" title="statement not covered" >        return (</span>
 <span class="cstat-no" title="statement not covered" >          &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;hr /&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;form onSubmit={handleSubmit}&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;label htmlFor="cardNumber"&gt;Kortnummer:&lt;/label&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;input</span>
@@ -754,19 +747,17 @@ export default function Payment() {
 <span class="branch-0 cbranch-no" title="branch not covered" >      case "mobilePay":</span>
 <span class="cstat-no" title="statement not covered" >        return (</span>
 <span class="cstat-no" title="statement not covered" >          &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;hr /&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;p&gt;Du har valgt at betale med MobilePay.&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/&gt;</span>
         );
-<span class="branch-0 cbranch-no" title="branch not covered" >      case "reciept":</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >      case "invoice":</span>
 <span class="cstat-no" title="statement not covered" >        return (</span>
 <span class="cstat-no" title="statement not covered" >          &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;hr /&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;p&gt;Du har valgt at betale med Faktura.&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/&gt;</span>
         );
       default:
-        return null;
+        return &lt;p&gt;Vælg en betalingsmetode for at fortsætte.&lt;/p&gt;;
     }
   };
 &nbsp;
@@ -807,26 +798,26 @@ export default function Payment() {
               type="radio"
               name="myRadio"
               value="reciept"
-              checked={selectedOption === "receipt"}
+              checked={selectedOption === "invoice"}
               onChange={handleInvoiceChange}
             /&gt;
             &lt;label htmlFor="payment-receipt"&gt;Faktura&lt;/label&gt;
           &lt;/div&gt;
+&nbsp;
+          &lt;div className="giftcard-wrapper"&gt;
+            &lt;div&gt;
+              &lt;input
+                id="giftcard-cb"
+                type="checkbox"
+                checked={giftCardChecked}
+                onChange={handleGiftCardChange}
+              /&gt;
+              &lt;label htmlFor="giftcard-cb"&gt;Brug gavekort&lt;/label&gt;
+            &lt;/div&gt;
+            {giftCardContent}
+          &lt;/div&gt;
         &lt;/div&gt;
         &lt;div className="paymentdetails-wrapper"&gt;{renderContent()}&lt;/div&gt;
-&nbsp;
-        &lt;div className="giftcard-wrapper"&gt;
-          &lt;div&gt;
-            &lt;input
-              id="giftcard-cb"
-              type="checkbox"
-              checked={giftCardChecked}
-              onChange={handleGiftCardChange}
-            /&gt;
-            &lt;label htmlFor="giftcard-cb"&gt;Brug gavekort&lt;/label&gt;
-          &lt;/div&gt;
-          {giftCardContent}
-        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/&gt;
   );
@@ -838,7 +829,7 @@ export default function Payment() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-29T21:15:19.398Z
+                at 2023-04-30T20:07:33.646Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

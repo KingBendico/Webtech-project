@@ -1,10 +1,8 @@
-import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { beforeEach, describe, expect, vi, it } from "vitest";
 import ItemList from "./ItemList";
 import { CartContext } from "../../context/CartContext";
 import { Item } from "../../types/types";
-import userEvent from "@testing-library/user-event";
 
 describe("ItemList component", () => {
   var items: Item[] = [
@@ -36,7 +34,8 @@ describe("ItemList component", () => {
       
     },
   ]
-    const setItems = vi.fn();
+  
+  const setItems = vi.fn();
   beforeEach(() => {
     render(
       <CartContext.Provider value={{ items, setItems }}>
@@ -63,14 +62,14 @@ describe("ItemList component", () => {
   });
 
   it("calls setItems with updated items when the quantity of an item is changed", () => {
-    const selectElement = screen.getAllByTestId("quantity-plus")[0];
-    fireEvent.click(selectElement);
+    const quantityPlusButton = screen.getAllByTestId("quantity-plus")[1];
+    fireEvent.click(quantityPlusButton);
     expect(setItems).toHaveBeenCalledWith([
+      items[0],
       {
-        ...items[0],
+        ...items[1],
         quantity: 2,
       },
-      items[1],
     ]);
   });
 

@@ -17,7 +17,8 @@ export default function ItemTable(props: Props) {
     onToggleGiftWrap,
     onRecurringScheduleChange,
   } = props;
-  const { items } = useCart();
+  
+  const { items } = useCart()
 
   const totalQuantityRebatePrice = items.map((item) => {
     // Check if price and quantity are valid numbers

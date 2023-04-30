@@ -21,8 +21,14 @@ export default function CustomerAgreePrefsInput() {
       body: JSON.stringify(body),
     };
 
-    const respone = fetch("https://eozzd62ocjr82sr.m.pipedream.net", options);
-    console.log(await respone);
+    const respone = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options);
+    if(respone.ok){
+      window.history.pushState({}, "", "/success");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    } else {
+      window.history.pushState({}, "", "/failed");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    }
   };
 
   const handleTocChange = () => {
