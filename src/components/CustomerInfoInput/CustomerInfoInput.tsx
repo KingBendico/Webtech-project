@@ -69,10 +69,9 @@ export default function customerInfoInput() {
       )
         .then((response) => {
           if(response.ok){
-            console.log(response.ok)
             return response.json()
           }else{
-            throw new Error("hej")
+            throw new Error()
           }
         })
         .then((body) => {
