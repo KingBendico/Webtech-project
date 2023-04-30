@@ -124,7 +124,7 @@ export default function Payment() {
   };
 
   const handleInvoiceChange = () => {
-    setSelectedOption("receipt");
+    setSelectedOption("invoice");
   };
 
   const renderContent = () => {
@@ -181,7 +181,7 @@ export default function Payment() {
             <p>Du har valgt at betale med MobilePay.</p>
           </>
         );
-      case "reciept":
+      case "invoice":
         return (
           <>
             <hr />
@@ -230,7 +230,7 @@ export default function Payment() {
               type="radio"
               name="myRadio"
               value="reciept"
-              checked={selectedOption === "receipt"}
+              checked={selectedOption === "invoice"}
               onChange={handleInvoiceChange}
             />
             <label htmlFor="payment-receipt">Faktura</label>

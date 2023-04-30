@@ -58,6 +58,12 @@ export default function ShoppingCartSummary() {
         totalQuantityRebatePriceAccumulated * 0.9
       : totalQuantityRebatePriceAccumulated;
 
+
+      const TotalAmountWithDiscounts =
+      totalQuantityRebatePriceAccumulated <= 300
+        ? totalQuantityRebatePriceAccumulated
+        : totalQuantityRebatePriceAccumulated - TenPercentDiscountAmount;
+
   return (
     <>
       <div className="summary">
@@ -80,7 +86,7 @@ export default function ShoppingCartSummary() {
         <p id="total">
           Total beløb:{" "}
           {(
-            totalQuantityRebatePriceAccumulated - TenPercentDiscountAmount
+            TotalAmountWithDiscounts
           ).toLocaleString("da-DK", currencyFormat)}
         </p>
         <NavigateButton to="/checkout">Gå Til Kassen</NavigateButton>
