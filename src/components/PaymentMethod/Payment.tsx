@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useCustomer } from "../../context/UserContext";
 
 import "./style.css";
 
 type PaymentMethod = "Card" | "MobilePay" | "GiftCard" | "Invoice";
+
+
+
 
 interface PaymentState {
   amount: number;
@@ -23,6 +27,7 @@ export default function Payment() {
     billingAddress: null,
     paymentMethod: null,
   });
+  const { customerInfo } = useCustomer();
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const amount = parseInt(event.target.value, 10);
@@ -120,7 +125,9 @@ export default function Payment() {
   };
 
   const handleMobilePayChange = () => {
+      
     setSelectedOption("mobilePay");
+
   };
 
   const handleInvoiceChange = () => {
@@ -174,11 +181,19 @@ export default function Payment() {
           </>
         );
       case "mobilePay":
+        if (customerInfo.phoneNr.length===8) {
         return (
           <>
             <p>Du har valgt at betale med MobilePay.</p>
           </>
-        );
+        );} else {
+
+          return (
+            <>
+              <p>Du kan ikke betale med MobilePay, da du ikke har indtastet et telefonnummer under leveringsoplysninger</p>
+            </>
+          );
+        }
       case "invoice":
         return (
           <>
