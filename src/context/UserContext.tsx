@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { CustomerInfo } from "../types/types";
 
 type UserContextType = {
@@ -8,7 +8,7 @@ type UserContextType = {
 
 export const CustomerContext = createContext<UserContextType>({
   customerInfo: {
-    country: "denmark",
+    country: "",
     zipCode: "",
     city: "",
     adress: "",
@@ -25,3 +25,28 @@ export const CustomerContext = createContext<UserContextType>({
 });
 
 export const useCustomer = () => useContext(CustomerContext);
+
+const CustomerProvider = ({ children }: { children: React.ReactNode }) => {
+  const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
+    country: "denmark",
+    zipCode: "",
+    city: "",
+    adress: "",
+    phoneNr: "",
+    name: "",
+    email: "",
+    companyName: "",
+    vatNumber: "",
+    toc: false,
+    marketingEmails: false,
+    prefs: "",
+  });
+
+  const value = { customerInfo, setCustomerInfo };
+
+  return (
+    <CustomerContext.Provider value={value}>{children}</CustomerContext.Provider>
+  );
+};
+
+export default CustomerProvider;

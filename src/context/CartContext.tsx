@@ -1,5 +1,6 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { Item } from "../types/types";
+import cartItems from "../../json_data/cart_items.json";
 
 type CartContextType = {
   items: Item[];
@@ -12,3 +13,15 @@ export const CartContext = createContext<CartContextType>({
 });
 
 export const useCart = () => useContext(CartContext);
+
+const CartProvider = ({ children }: { children: React.ReactNode }) => {
+  const [items, setItems] = useState<Item[]>(cartItems);
+
+  const value = { items, setItems };
+
+  return (
+    <CartContext.Provider value={value}>{children}</CartContext.Provider>
+  );
+};
+
+export default CartProvider;

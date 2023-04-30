@@ -3,30 +3,15 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart'
 import Checkout from './pages/Checkout/Checkout';
 import Success from './pages/PaymentStatus/Success';
 import Failed from './pages/PaymentStatus/Failed';
-import { Item, CustomerInfo } from "./types/types";
 import { useEffect, useState } from "react";
-import cartItems from "../json_data/cart_items.json";
-import { CartContext } from './context/CartContext';
-import { CustomerContext } from './context/UserContext';
-import { PaymentContext } from './context/PaymentContext';
+import CartProvider from './context/CartContext';
+import CustomerProvider from './context/UserContext';
+import LoadingProvider from "./context/LoadingContext";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(window.location.pathname);
-  const [items, setItems] = useState<Item[]>(cartItems);
-  const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
-    country: "denmark",
-    zipCode: "",
-    city: "",
-    adress: "",
-    phoneNr: "",
-    name: "",
-    email: "",
-    companyName: "",
-    vatNumber: "",
-    toc: false,
-    marketingEmails: false,
-    prefs: ""
-},)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
 
 
   const handleUrlChange = () => {
@@ -48,6 +33,7 @@ function App() {
           setCurrentPage('/PageNotFound')
           break;
       }
+      console.log(isLoading)
   };
 
   useEffect(() => {
@@ -56,21 +42,23 @@ function App() {
 
   return (
     <>
-      <CartContext.Provider value= {{ items, setItems}}>
-        <CustomerContext.Provider value= {{ customerInfo, setCustomerInfo }}>
-        {currentPage === '/checkout' ? (
-            <Checkout/>
-        ) : currentPage === '/' ? (
-          <ShoppingCart/>
-        ) : currentPage === '/success' ? (
-          <Success/>
-        ) :currentPage === '/failed' ? (
-          <Failed/>
-        ) :(
-          <h1>Page Not Found</h1>
-        )}
-        </CustomerContext.Provider>
-      </CartContext.Provider>
+      <CartProvider>
+        <CustomerProvider>
+          <LoadingProvider>
+            { currentPage === '/checkout' ? (
+                <Checkout/>
+            ) : currentPage === '/' ? (
+                <ShoppingCart/>
+            ) : currentPage === '/success' ? (
+                <Success/>
+            ) :currentPage === '/failed' ? (
+                <Failed/>
+            ) :(
+              <h1>Page Not Found</h1>
+            )}
+          </LoadingProvider>
+        </CustomerProvider>
+      </CartProvider>
     </>
   );
 }
