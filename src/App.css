@@ -6,8 +6,6 @@ body {
 #root {
   margin: 0 auto;
   padding: 0 2rem;
-  text-align: center;
-  /*background-color: var(--secondary-color);*/
   height: fit-content;
   min-height: 100vh;
 }

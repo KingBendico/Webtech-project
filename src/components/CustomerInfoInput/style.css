@@ -3,6 +3,40 @@
     color: var(--validation-red-color);
 }
 
+.label-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.label-wrapper label {
+    width: 60%;
+}
+
+.label-wrapper input {
+    width: 60%;
+}
+
+.label-wrapper select {
+    width: 61.5%;
+}
+
+.customerinput-wrapper {
+    padding: 1.5rem 3rem;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 @media screen and (min-width: 768px) {
     .container h1 {
         text-align: left;
@@ -32,6 +66,8 @@
         text-align: left;
     }
 
+    
+
     .label-wrapper input {
         width: 60%;
     }
@@ -39,14 +75,4 @@
     .label-wrapper select {
         width: 61.5%;
     }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    input[type=number] {
-        -moz-appearance: textfield;
-      }
 }

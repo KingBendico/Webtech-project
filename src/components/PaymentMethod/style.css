@@ -1,3 +1,35 @@
+.payment-wrapper {
+    display: grid;
+    gap: 0.5rem;
+    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-template-columns: 1fr;
+}
+
+.payment-wrapper div {
+    margin-bottom: 1rem;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.paymentmethod-wrapper,
+    .paymentdetails-wrapper {
+        padding: 1.5rem 3rem;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+.paymentdetails-wrapper form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
 
 @media screen and (min-width: 768px) {
     .header-wrapper {

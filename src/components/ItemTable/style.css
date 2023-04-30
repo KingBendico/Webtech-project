@@ -1,7 +1,6 @@
 table, th, td {
     border-collapse: collapse;
     margin: 0 auto;
-    text-align: left;
     table-layout: auto;
     width: auto;
 }
@@ -44,7 +43,7 @@ table .product-image img {
     display: block;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
     table, tbody, tr, td {
         display: block;
     }

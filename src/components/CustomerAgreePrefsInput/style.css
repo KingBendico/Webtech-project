@@ -1,27 +1,11 @@
 .customeragree-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
     gap: 1rem;
-    margin-left: 4rem;
-}
-
-.required:after {
-    content:"  *";
-    color: var(--validation-red-color);
-}
-
-.input-wrapper {
-    display: flex;
-    gap: 1rem;
-}
-
-.comment-wrapper {
-    padding-left: 4px;
 }
 
 .comment-wrapper textarea {
-    width: 100%;
+    width: 95%;
     resize: none;
     margin-top: 1rem;
 }
@@ -33,9 +17,53 @@
     width: 95%;
     height: 90%;
     align-items: end;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .navigation-wrapper button {
     height: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+    .customeragree-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 1rem;
+        margin-left: 4rem;
+    }
+
+    .input-wrapper {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .comment-wrapper {
+        padding-left: 4px;
+    }
+    
+    .comment-wrapper textarea {
+        width: 100%;
+        resize: none;
+        margin-top: 1rem;
+    }
+    
+    .navigation-wrapper {
+        display: flex;
+        justify-content: end;
+        gap: 1rem;
+        width: 95%;
+        height: 90%;
+        align-items: end;
+    }
+    .navigation-wrapper button {
+        height: fit-content;
+    }
+}
+
+.required:after {
+    content:"  *";
+    color: var(--validation-red-color);
 }
 
 .navigation-wrapper #back {
@@ -51,6 +79,7 @@
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
+
 .navigation-wrapper #pay:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
