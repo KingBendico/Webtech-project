@@ -43,6 +43,7 @@ export default function CustomerAgreePrefsInput() {
       <div className="customeragree-wrapper">
         <div className="input-wrapper">
           <input
+            id="toc"
             name="toc"
             type="checkbox"
             checked={customerInfo.toc}
