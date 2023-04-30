@@ -2,8 +2,10 @@ import { useCustomer } from "../../context/UserContext";
 import { useCart } from "../../context/CartContext";
 import NavigateButton from "../../components/NavigateButton/NavigateButton";
 import "./style.css";
+import { useLoading } from "../../context/LoadingContext";
 
 export default function CustomerAgreePrefsInput() {
+  const { isLoading, setIsLoading } = useLoading();
   const { customerInfo, setCustomerInfo } = useCustomer();
   const { items } = useCart();
   const pay = async () => {
@@ -21,7 +23,9 @@ export default function CustomerAgreePrefsInput() {
       body: JSON.stringify(body),
     };
 
+    setIsLoading(true)
     const respone = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options);
+    console.log(isLoading)
     if(respone.ok){
       window.history.pushState({}, "", "/success");
       window.dispatchEvent(new PopStateEvent("popstate"));
@@ -29,6 +33,7 @@ export default function CustomerAgreePrefsInput() {
       window.history.pushState({}, "", "/failed");
       window.dispatchEvent(new PopStateEvent("popstate"));
     }
+    setIsLoading(false)
   };
 
   const handleTocChange = () => {

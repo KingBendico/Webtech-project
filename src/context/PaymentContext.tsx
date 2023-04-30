@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { PaymentState } from "../types/types";
 
 type PaymentContextType = {
@@ -18,3 +18,21 @@ export const PaymentContext = createContext<PaymentContextType>({
 });
 
 export const usePayment = () => useContext(PaymentContext);
+
+const PaymentProvider = ({ children }: { children: React.ReactNode }) => {
+    const [paymentState, setPaymentState] = useState<PaymentState>({
+        amount: 0,
+        giftCardNumber: null,
+        phoneNumber: null,
+        billingAddress: null,
+        paymentMethod: null,
+    });
+  
+    const value = { paymentState, setPaymentState };
+  
+    return (
+      <PaymentContext.Provider value={value}>{children}</PaymentContext.Provider>
+    );
+  };
+  
+  export default PaymentProvider;
