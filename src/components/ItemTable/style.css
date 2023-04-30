@@ -43,6 +43,11 @@ table .product-image img {
     display: block;
 }
 
+.upsell:after {
+    content:" *";
+    color: var(--validation-green-color);
+}
+
 @media screen and (max-width: 480px) {
     table, tbody, tr, td {
         display: block;

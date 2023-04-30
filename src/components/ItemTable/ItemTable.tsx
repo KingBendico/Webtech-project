@@ -83,14 +83,6 @@ export default function ItemTable(props: Props) {
           </td>
 
           <td>
-            {item.rebateQuantity > item.quantity ? (
-              <span>
-                Køb {item.rebateQuantity - item.quantity} mere og få{" "}
-                {item.rebatePercent}% rabat!<br></br>
-              </span>
-            ) : (
-              ""
-            )}
             <button
               data-testid="quantity-minus"
               onClick={() => onQuantityChange(item, item.quantity - 1)}
@@ -104,6 +96,11 @@ export default function ItemTable(props: Props) {
             >
               +
             </button>
+            {item.rebateQuantity > item.quantity ? (
+              <span className="upsell"></span>
+            ) : (
+              ""
+            )}
           </td>
           <td className="gift-wrap">
             <input
