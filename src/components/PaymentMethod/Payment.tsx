@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useCustomer } from "../../context/UserContext";
-
 import "./style.css";
 import { usePayment } from "../../context/PaymentContext";
 import { PaymentMethod } from "../../types/types";
+
 
 
 export default function Payment() {
@@ -94,6 +94,8 @@ export default function Payment() {
   const [cardHolder, setCardHolder] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
+
+ 
 
   const handleSubmit = () => {
     // submission logic here
