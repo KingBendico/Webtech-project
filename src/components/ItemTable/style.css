@@ -50,6 +50,13 @@ table .product-image img {
     content:"*";
     color: var(--validation-green-color);
     font-size: x-large;
+    animation: blink 0.5s steps(3, start) 2;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 480px) {
