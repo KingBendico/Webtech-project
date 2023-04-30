@@ -31,12 +31,17 @@ interface BillingAddress {
   vatNumber: string;
 }
 
+type PaymentMethod = "Card" | "MobilePay" | "GiftCard" | "Invoice";
+
 interface PaymentState {
   amount: number;
-  giftCardNumber: number | null;
-  phoneNumber: number | null;
-  billingAddress: BillingAddress | null;
-  paymentMethod: "MobilePay" | "GiftCard" | "Invoice" | null;
+  giftCardNumber: string | null;
+  phoneNumber: string | null;
+  billingAddress: {
+    company?: string;
+    vatNumber?: string;
+  } | null;
+  paymentMethod: PaymentMethod | null;
 }
 
-export type { Item, CustomerInfo, PaymentState, BillingAddress };
+export type { Item, CustomerInfo, PaymentState, PaymentMethod, BillingAddress };

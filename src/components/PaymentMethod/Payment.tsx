@@ -1,51 +1,37 @@
 import React, { useState } from "react";
 
 import "./style.css";
+import { usePayment } from "../../context/PaymentContext";
 
 type PaymentMethod = "Card" | "MobilePay" | "GiftCard" | "Invoice";
 
-interface PaymentState {
-  amount: number;
-  giftCardNumber: string | null;
-  phoneNumber: string | null;
-  billingAddress: {
-    company?: string;
-    vatNumber?: string;
-  } | null;
-  paymentMethod: PaymentMethod | null;
-}
+
 
 export default function Payment() {
-  const [state, setState] = useState<PaymentState>({
-    amount: 0,
-    giftCardNumber: null,
-    phoneNumber: null,
-    billingAddress: null,
-    paymentMethod: null,
-  });
+  const {paymentState, setPaymentState} = usePayment();
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const amount = parseInt(event.target.value, 10);
-    setState((prevState) => ({ ...prevState, amount }));
+    setPaymentState((prevState) => ({ ...prevState, amount }));
   };
 
   const handleGiftCardNumberChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const giftCardNumber = event.target.value;
-    setState((prevState) => ({ ...prevState, giftCardNumber }));
+    setPaymentState((prevState) => ({ ...prevState, giftCardNumber }));
   };
 
   const handlePhoneNumberChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const phoneNumber = event.target.value;
-    setState((prevState) => ({ ...prevState, phoneNumber }));
+    setPaymentState((prevState) => ({ ...prevState, phoneNumber }));
   };
 
   const handleCompanyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const company = event.target.value;
-    setState((prevState) => ({
+    setPaymentState((prevState) => ({
       ...prevState,
       billingAddress: {
         ...prevState.billingAddress,
@@ -58,7 +44,7 @@ export default function Payment() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const vatNumber = event.target.value;
-    setState((prevState) => ({
+    setPaymentState((prevState) => ({
       ...prevState,
       billingAddress: {
         ...prevState.billingAddress,
@@ -68,19 +54,19 @@ export default function Payment() {
   };
 
   const handlePaymentMethodChange = (paymentMethod: PaymentMethod) => {
-    setState((prevState) => ({ ...prevState, paymentMethod }));
+    setPaymentState((prevState) => ({ ...prevState, paymentMethod }));
   };
 
   const canPayWithMobilePay =
-    state.phoneNumber !== null && state.phoneNumber.length === 8;
+    paymentState.phoneNumber !== null && paymentState.phoneNumber.length === 8;
   const canPayWithInvoice =
-    state.billingAddress !== null && state.billingAddress.vatNumber !== "";
+    paymentState.billingAddress !== null && paymentState.billingAddress.vatNumber !== "";
 
   const canPayWithGiftCard =
-    state.giftCardNumber !== null &&
-    state.amount !== null &&
-    state.giftCardNumber.length > 0 &&
-    state.amount.toString().length > 0;
+    paymentState.giftCardNumber !== null &&
+    paymentState.amount !== null &&
+    paymentState.giftCardNumber.length > 0 &&
+    paymentState.amount.toString().length > 0;
 
   const [giftCardChecked, setGiftCardChecked] = React.useState(false);
   const handleGiftCardChange = () => {

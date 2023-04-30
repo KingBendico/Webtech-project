@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import cartItems from "../json_data/cart_items.json";
 import { CartContext } from './context/CartContext';
 import { CustomerContext } from './context/UserContext';
+import { PaymentContext } from './context/PaymentContext';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(window.location.pathname);
@@ -58,7 +59,7 @@ function App() {
       <CartContext.Provider value= {{ items, setItems}}>
         <CustomerContext.Provider value= {{ customerInfo, setCustomerInfo }}>
         {currentPage === '/checkout' ? (
-          <Checkout/>
+            <Checkout/>
         ) : currentPage === '/' ? (
           <ShoppingCart/>
         ) : currentPage === '/success' ? (
