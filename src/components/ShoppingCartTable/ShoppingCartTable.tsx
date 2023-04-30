@@ -4,8 +4,6 @@ import "./style.css";
 export default function ShoppingCartTable() {
   return (
     <>
-      <h1>Indkøbskurv</h1>
-      <hr />
       <table>
         <thead>
           <tr>

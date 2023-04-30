@@ -6,6 +6,8 @@ import ShoppingCartSummary from "../../components/ShoppingCartSummary/ShoppingCa
 export default function ShoppingCart() {
   return (
     <>
+      <h1>Indkøbskurv</h1>
+      <hr />
       <ShoppingCartTable />
       <ShoppingCartSummary />
     </>
