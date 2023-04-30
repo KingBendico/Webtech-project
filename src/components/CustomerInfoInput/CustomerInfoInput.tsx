@@ -1,11 +1,8 @@
-
 import { useCustomer } from "../../context/UserContext";
 import "./style.css";
 
-
-
 export default function customerInfoInput() {
-  const {customerInfo, setCustomerInfo} = useCustomer()
+  const { customerInfo, setCustomerInfo } = useCustomer();
   const handleAdressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCustomerInfo({ ...customerInfo, adress: e.target.value });
   };
@@ -89,80 +86,148 @@ export default function customerInfoInput() {
   };
 
   return (
-    <div className="container">
-      <form>
-        <div>
-          <label htmlFor="country">*Land</label>
-          <select
-            name="country"
-            id="country"
-            onChange={handleCountryChange}
-            value={customerInfo.country}
-          >
-            <option value="denmark">Danmark</option>
-            <option value="sweeden">Sverige</option>
-            <option value="norway">Norge</option>
-          </select>
+    <>
+      <div className="container">
+        <h1>Leveringsoplysninger</h1>
+        <hr />
+        <p>
+          Felter markeret med <span className="required"></span> skal udfyldes!
+        </p>
+        <div className="customerinput-wrapper">
+          <form>
+            <div className="label-wrapper">
+              <label htmlFor="country" className="required">
+                Land
+              </label>
+              <select
+                name="country"
+                id="country"
+                onChange={handleCountryChange}
+                value={customerInfo.country}
+                required
+              >
+                <option value="denmark">Danmark</option>
+                <option value="sweeden">Sverige</option>
+                <option value="norway">Norge</option>
+              </select>
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="phone-number" className="required">
+                Telefonnummer
+              </label>
+              <br />
+              <input
+                name="phone-number"
+                id="phone-number"
+                type="number"
+                placeholder="Indtast tlf.nr."
+                value={customerInfo.phoneNr}
+                onChange={handlePhoneNrChange}
+                required
+              />
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="zip-code" className="required">
+                Postnummer
+              </label>
+              <input
+                name="zip-code"
+                value={customerInfo.zipCode}
+                placeholder="Indtast postnr."
+                type="number"
+                onChange={handleZipCodeChange}
+                required
+              />
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="city" className="required">
+                By
+              </label>
+              <br />
+              {customerInfo.country == "denmark" ? (
+                <input
+                  name="city"
+                  id="city"
+                  value={customerInfo.city}
+                  disabled
+                />
+              ) : (
+                <input
+                  className="required"
+                  name="city"
+                  placeholder="Indtast bynavn"
+                  id="city"
+                  value={customerInfo.city}
+                  required
+                />
+              )}
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="address" className="required">
+                Adresse
+              </label>
+              <br />
+              <input
+                name="address"
+                id="address"
+                placeholder="Indtast adresse"
+                value={customerInfo.adress}
+                onChange={handleAdressChange}
+                required
+              />
+            </div>
+            <div className="label-wrapper">
+              <br />
+              <label htmlFor="name" className="required">
+                Navn
+              </label>
+              <br />
+              <input
+                name="name"
+                id="name"
+                placeholder="Indtast navn"
+                value={customerInfo.name}
+                onChange={handleNameChange}
+                required
+              />
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="email" className="required">
+                Email
+              </label>
+              <input
+                name="email"
+                id="email"
+                type="email"
+                placeholder="Indtast email"
+                value={customerInfo.email}
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="company-name">Firmanavn</label>
+              <input
+                name="company-name"
+                id="company-name"
+                placeholder="Indtast firmanavn"
+                value={customerInfo.companyName}
+                onChange={handleCompanyNameChange}
+              />
+            </div>
+            <div className="label-wrapper">
+              <label htmlFor="vat-number">CVR-nummer</label>
+              <input
+                name="vat-number"
+                id="vat-number"
+                placeholder="Indtast CVR-nr."
+                value={customerInfo.vatNumber}
+                onChange={handleVatNumberChange}
+              />
+            </div>
+          </form>
         </div>
-        <br/>
-        <label htmlFor="zip-code">*Post nummer</label><br/>
-        <input
-          name="zip-code"
-          value={customerInfo.zipCode}
-          type="number"
-          onChange={handleZipCodeChange}
-        /><br/>
-        <label htmlFor="city">*By</label><br/>
-        {customerInfo.country == "denmark" ? (
-          <input name="city" id="city" value={customerInfo.city} disabled />
-        ) : (
-          <input name="city" id="city" value={customerInfo.city} />
-        )}<br/>
-        <label htmlFor="address">*Adresse</label><br/>
-        <input
-          name="address"
-          id="address"
-          value={customerInfo.adress}
-          onChange={handleAdressChange}
-        /><br/>
-        <label htmlFor="phone-number">*Telefon Nummer</label><br/>
-        <input
-          name="phone-number"
-          id="phone-number"
-          type="number"
-          value={customerInfo.phoneNr}
-          onChange={handlePhoneNrChange}
-        /><br/>
-        <label htmlFor="name">*Navn</label><br/>
-        <input
-          name="name"
-          id="name"
-          value={customerInfo.name}
-          onChange={handleNameChange}
-        /><br/>
-        <label htmlFor="email">*Email</label>
-        <input
-          name="email"
-          id="email"
-          type="email"
-          value={customerInfo.email}
-          onChange={handleEmailChange}
-        />
-        <label htmlFor="company-name">Firma navn</label>
-        <input
-          name="company-name"
-          id="company-name"
-          value={customerInfo.companyName}
-          onChange={handleCompanyNameChange}
-        />
-        <label htmlFor="vat-number">CVR nummer</label>
-        <input
-          name="vat-number"
-          id="vat-number"
-          value={customerInfo.vatNumber}
-          onChange={handleVatNumberChange}
-        />
-      </form>
-    </div>
+      </div>
+    </>
   );
 }

@@ -1,28 +1,81 @@
 table, th, td {
     border-collapse: collapse;
     margin: 0 auto;
+    table-layout: auto;
+    width: auto;
+}
+
+table th {
     text-align: left;
+    font-weight: 700;
 }
 
 table tr:hover,
 table tr:nth-child(even):hover {
-    background-color: #ccc;
+    background-color: var(--secondary-accent-color);
 }
 
 table tr:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: var(--secondary-color);
 }
 
-
-table td, table th {
-    padding: 12px 16px;
+table td button {
+    background-color: unset;
+    cursor: pointer;
+    border: 1px solid var(--accent-color);
+    border-radius: 25%;
 }
 
 table td button {
     margin: 0 5px;
     padding: 2px 6px;
-    background-color: unset;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 25%;
+}
+
+table td button.delete {
+    font-weight: 700;
+}
+
+table td button.delete:hover {
+    color: var(--validation-red-color);
+    border-color: var(--validation-red-color);
+}
+
+table .product-image img {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+}
+
+.upsell:after {
+    content:"*";
+    color: var(--validation-green-color);
+    font-size: x-large;
+    animation: blink 0.5s steps(3, start) 2;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table, tbody, tr, td {
+        display: block;
+        padding: 0.2rem;
+    }
+
+    thead, th, table .product-image {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    table td, table th {
+        padding: 0.4rem 1rem;
+    }
+
+    table td.gift-wrap {
+        text-align: center;
+    }
 }

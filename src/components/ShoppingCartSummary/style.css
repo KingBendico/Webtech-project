@@ -1,0 +1,33 @@
+.summary p#total {
+    font-weight: 700;
+    font-family: "Roboto Condensed";
+    font-size: x-large;
+}
+
+.summary button {
+    background-color: var(--validation-green-color);
+    color: var(--secondary-color);
+    border-color: var(--validation-green-color);
+    margin: 0.5rem 0;
+}
+
+.summary button:hover {
+    background-color: var(--secondary-color);
+    color: var(--validation-green-color);
+}
+
+@media screen and (min-width: 768px) {
+    .summary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
+    }
+    
+    .summary p {
+        flex-basis: 100%;
+        text-align: right;
+        padding: 0.2rem 0.5rem;
+        margin: 0.2rem;
+    }
+
+}
