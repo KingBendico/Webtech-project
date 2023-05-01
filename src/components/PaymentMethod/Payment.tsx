@@ -68,9 +68,9 @@ export default function Payment() {
 
   const canPayWithGiftCard =
     paymentState.giftCardNumber !== null &&
-    paymentState.amount !== null &&
+    paymentState.giftCardAmount !== null &&
     paymentState.giftCardNumber.length > 0 &&
-    paymentState.amount.toString().length > 0;
+    paymentState.giftCardAmount.toString().length > 0;
 
     // const canPayWithGiftCard =
     // giftCardCode !== null &&
@@ -78,13 +78,43 @@ export default function Payment() {
     // giftCardCode.length > 0 &&
     // giftCardAmount.toString().length > 0;
 
+    const createOptions = () => {
+      const headers = new Headers();
+      headers.append("Content-Type", "application/json");
 
+      const body = {
+          paymentInfo: paymentState
+      };
+  
+      const options = {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+      };
+
+      return options
+  }
+  const giftCardFetch = async () => {
+
+
+    const options = createOptions()
+    const respone = await fetch("https://eoa0n5l6r8gydlw.m.pipedream.net", options);
+    if(respone.ok){
+    window.history.pushState({}, "", "/success");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    } else {
+    window.history.pushState({}, "", "/failed");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    }
+  
+};
 
 const [giftCardsubmitted, setGiftCardSubmitted] = useState(false);
 const handleGiftCardSubmit = (event:any) => {
          event.preventDefault();
 
          if (canPayWithGiftCard) {
+         giftCardFetch
         setGiftCardSubmitted(true);
        }
 
