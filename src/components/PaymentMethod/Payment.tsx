@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useCustomer } from "../../context/UserContext";
 import "./style.css";
 import { usePayment } from "../../context/PaymentContext";
-import { PaymentMethod } from "../../types/types";
+
 
 
 
 export default function Payment() {
   const {paymentState, setPaymentState} = usePayment();
-  const {customerInfo, setCustomerInfo } = useCustomer();
+  const {customerInfo } = useCustomer();
 
   const handleGiftCardAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const giftCardAmount = parseInt(event.target.value, 10);
@@ -22,61 +22,13 @@ export default function Payment() {
     setPaymentState((prevState) => ({ ...prevState, giftCardNumber }));
   };
 
-  const handlePhoneNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const phoneNumber = event.target.value;
-    setPaymentState((prevState) => ({ ...prevState, phoneNumber }));
-  };
 
-  const handleCompanyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const company = event.target.value;
-    setPaymentState((prevState) => ({
-      ...prevState,
-      billingAddress: {
-        ...prevState.billingAddress,
-        company,
-      },
-    }));
-  };
-
-  const handleVatNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const vatNumber = event.target.value;
-    setPaymentState((prevState) => ({
-      ...prevState,
-      billingAddress: {
-        ...prevState.billingAddress,
-        vatNumber,
-      },
-    }));
-  };
-
-  const handlePaymentMethodChange = (paymentMethod: PaymentMethod) => {
-    setPaymentState((prevState) => ({ ...prevState, paymentMethod }));
-  };
-
-  const canPayWithMobilePay =
-    paymentState.phoneNumber !== null && paymentState.phoneNumber.length === 8;
-  const canPayWithInvoice =
-    paymentState.billingAddress !== null && paymentState.billingAddress.vatNumber !== "";
-
-
-  const [giftCardCode, setGiftCardCode] = useState("");
-  const [giftCardAmount, setGiftCardAmount] = useState("");
 
   const canPayWithGiftCard =
     paymentState.giftCardNumber !== null &&
     paymentState.giftCardAmount !== null &&
     paymentState.giftCardNumber.length > 0 &&
     paymentState.giftCardAmount.toString().length > 0;
-
-    // const canPayWithGiftCard =
-    // giftCardCode !== null &&
-    // giftCardAmount !== null &&
-    // giftCardCode.length > 0 &&
-    // giftCardAmount.toString().length > 0;
 
     const createOptions = () => {
       const headers = new Headers();
@@ -126,10 +78,6 @@ const handleGiftCardSubmit = (event:any) => {
     setGiftCardChecked(!giftCardChecked);
   };
 
-
-  
-
-  
 
   const giftCardContent = giftCardChecked ? (
     <>
