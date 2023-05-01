@@ -9,6 +9,7 @@ interface Item {
   rebatePercent: number;
   upsellProductId: any;
   currency: string;
+  imageUrl: string;
 }
 
 interface CustomerInfo {

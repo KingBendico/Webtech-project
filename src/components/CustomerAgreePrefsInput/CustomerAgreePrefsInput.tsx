@@ -23,17 +23,20 @@ export default function CustomerAgreePrefsInput() {
       body: JSON.stringify(body),
     };
 
-    setIsLoading(true)
-    const respone = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options);
-    console.log(isLoading)
-    if(respone.ok){
+    setIsLoading(true);
+    const respone = await fetch(
+      "https://eozzd62ocjr82sr.m.pipedream.net",
+      options
+    );
+    console.log(isLoading);
+    if (respone.ok) {
       window.history.pushState({}, "", "/success");
       window.dispatchEvent(new PopStateEvent("popstate"));
     } else {
       window.history.pushState({}, "", "/failed");
       window.dispatchEvent(new PopStateEvent("popstate"));
     }
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   const handleTocChange = () => {
@@ -105,7 +108,11 @@ export default function CustomerAgreePrefsInput() {
             Betal
           </button>
         ) : (
-          <button id="pay" disabled>
+          <button
+            id="pay"
+            title="Udfyld de påkrævede felter for at fortsætte"
+            disabled
+          >
             Betal
           </button>
         )}
