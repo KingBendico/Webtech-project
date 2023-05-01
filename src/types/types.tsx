@@ -35,7 +35,7 @@ interface BillingAddress {
 type PaymentMethod = "Card" | "MobilePay" | "GiftCard" | "Invoice";
 
 interface PaymentState {
-  amount: number;
+  giftCardAmount: number;
   giftCardNumber: string | null;
   phoneNumber: string | null;
   billingAddress: {

@@ -10,9 +10,9 @@ export default function Payment() {
   const {paymentState, setPaymentState} = usePayment();
   const {customerInfo, setCustomerInfo } = useCustomer();
 
-  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const amount = parseInt(event.target.value, 10);
-    setPaymentState((prevState) => ({ ...prevState, amount }));
+  const handleGiftCardAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const giftCardAmount = parseInt(event.target.value, 10);
+    setPaymentState((prevState) => ({ ...prevState, giftCardAmount }));
   };
 
   const handleGiftCardNumberChange = (
@@ -62,33 +62,76 @@ export default function Payment() {
   const canPayWithInvoice =
     paymentState.billingAddress !== null && paymentState.billingAddress.vatNumber !== "";
 
+
+  const [giftCardCode, setGiftCardCode] = useState("");
+  const [giftCardAmount, setGiftCardAmount] = useState("");
+
   const canPayWithGiftCard =
     paymentState.giftCardNumber !== null &&
     paymentState.amount !== null &&
     paymentState.giftCardNumber.length > 0 &&
     paymentState.amount.toString().length > 0;
 
+    // const canPayWithGiftCard =
+    // giftCardCode !== null &&
+    // giftCardAmount !== null &&
+    // giftCardCode.length > 0 &&
+    // giftCardAmount.toString().length > 0;
+
+
+
+const [giftCardsubmitted, setGiftCardSubmitted] = useState(false);
+const handleGiftCardSubmit = (event:any) => {
+         event.preventDefault();
+
+         if (canPayWithGiftCard) {
+        setGiftCardSubmitted(true);
+       }
+
+    };
+
+  
   const [giftCardChecked, setGiftCardChecked] = React.useState(false);
   const handleGiftCardChange = () => {
     setGiftCardChecked(!giftCardChecked);
   };
 
+
+  
+
+  
+
   const giftCardContent = giftCardChecked ? (
-    <div>
-      <div className="input-grid">
-        <label htmlFor="giftCardNumber">Gavekortkode:</label>
-        <input
-          id="giftCardNumber"
-          type="string"
-          onChange={handleGiftCardNumberChange}
-        />
-      </div>
-      <div className="input-grid">
-        <label htmlFor="amount">Beløb:</label>
-        <input id="amount" type="number" onChange={handleAmountChange} />
-      </div>
-    </div>
+    <>
+    <form onSubmit={handleGiftCardSubmit}>
+      <label htmlFor="giftCardNumber">Gavekortkode:</label>
+      <input
+        type="number"
+        id="giftCardNumber"
+        name="giftCardNumber"
+      //  value={paymentState.giftCardNumber}
+        placeholder="indtast kode"
+        onChange={handleGiftCardNumberChange}
+        required
+      />
+      <label htmlFor="giftCardAmount">Beløb:</label>
+      <input
+        type="number"
+        id="giftCardAmount"
+        name="giftCardAmount"
+      //  value={giftCardAmount}
+        placeholder="indtast beløb"
+       onChange={handleGiftCardAmountChange}
+        required
+      />
+      <button type="submit">Tilføj</button>
+    </form>
+  </>
   ) : null;
+
+
+
+
 
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolder, setCardHolder] = useState("");
@@ -97,7 +140,7 @@ export default function Payment() {
 
  
 
-  const handleSubmit = () => {
+  const handleCardSubmit = () => {
     // submission logic here
   };
 
@@ -122,7 +165,7 @@ export default function Payment() {
       case "card":
         return (
           <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleCardSubmit}>
               <label htmlFor="cardNumber">Kortnummer:</label>
               <input
                 type="text"
@@ -279,6 +322,8 @@ export default function Payment() {
               <label htmlFor="giftcard-cb">Brug gavekort</label>
             </div>
             {giftCardContent}
+            {giftCardsubmitted && <p>Dit gavekort er blevet tilføjet! Du har indtastet beløbet {paymentState.giftCardAmount}.</p>}
+           
           </div>
         </div>
         <div className="paymentdetails-wrapper">{renderContent()}</div>
