@@ -8,7 +8,7 @@ type PaymentContextType = {
 
 export const PaymentContext = createContext<PaymentContextType>({
     paymentState: {
-        amount: 0,
+        giftCardAmount: 0,
         giftCardNumber: null,
         phoneNumber: null,
         billingAddress: null,
@@ -21,7 +21,7 @@ export const usePayment = () => useContext(PaymentContext);
 
 const PaymentProvider = ({ children }: { children: React.ReactNode }) => {
     const [paymentState, setPaymentState] = useState<PaymentState>({
-        amount: 0,
+        giftCardAmount: 0,
         giftCardNumber: null,
         phoneNumber: null,
         billingAddress: null,
