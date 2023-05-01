@@ -17,8 +17,8 @@ export default function ItemTable(props: Props) {
     onToggleGiftWrap,
     onRecurringScheduleChange,
   } = props;
-  
-  const { items } = useCart()
+
+  const { items } = useCart();
 
   const totalQuantityRebatePrice = items.map((item) => {
     // Check if price and quantity are valid numbers
@@ -59,7 +59,7 @@ export default function ItemTable(props: Props) {
       {items.map((item, index) => (
         <tr key={item.id}>
           <td className="product-image">
-            <img src={"/images/" + item.id + ".svg"} alt="Produkt billede" />
+            <img src={item.imageUrl} alt="Produkt billede" />
           </td>
           <td>
             {item.name}

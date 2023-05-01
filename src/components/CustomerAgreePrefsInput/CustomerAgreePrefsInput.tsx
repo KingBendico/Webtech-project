@@ -105,7 +105,11 @@ export default function CustomerAgreePrefsInput() {
             Betal
           </button>
         ) : (
-          <button id="pay" disabled>
+          <button
+            id="pay"
+            title="Udfyld de påkrævede felter for at fortsætte"
+            disabled
+          >
             Betal
           </button>
         )}
