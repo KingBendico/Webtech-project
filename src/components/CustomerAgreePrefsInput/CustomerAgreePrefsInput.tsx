@@ -8,36 +8,33 @@ export default function CustomerAgreePrefsInput() {
   const { isLoading, setIsLoading } = useLoading();
   const { customerInfo, setCustomerInfo } = useCustomer();
   const { items } = useCart();
-  const pay = async () => {
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json");
+  // const pay = async () => {
+  //   const headers = new Headers();
+  //   headers.append("Content-Type", "application/json");
 
-    const body = {
-      customerInfo: customerInfo,
-      shoppingCart: items,
-    };
+  //   const body = {
+  //     customerInfo: customerInfo,
+  //     shoppingCart: items,
+  //   };
 
-    const options = {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    };
+  //   const options = {
+  //     method: "POST",
+  //     headers: headers,
+  //     body: JSON.stringify(body),
+  //   };
 
-    setIsLoading(true);
-    const respone = await fetch(
-      "https://eozzd62ocjr82sr.m.pipedream.net",
-      options
-    );
-    console.log(isLoading);
-    if (respone.ok) {
-      window.history.pushState({}, "", "/success");
-      window.dispatchEvent(new PopStateEvent("popstate"));
-    } else {
-      window.history.pushState({}, "", "/failed");
-      window.dispatchEvent(new PopStateEvent("popstate"));
-    }
-    setIsLoading(false);
-  };
+  //   setIsLoading(true)
+  //   const respone = await fetch("https://eozzd62ocjr82sr.m.pipedream.net", options);
+  //   console.log(isLoading)
+  //   if(respone.ok){
+  //     window.history.pushState({}, "", "/success");
+  //     window.dispatchEvent(new PopStateEvent("popstate"));
+  //   } else {
+  //     window.history.pushState({}, "", "/failed");
+  //     window.dispatchEvent(new PopStateEvent("popstate"));
+  //   }
+  //   setIsLoading(false)
+  // };
 
   const handleTocChange = () => {
     setCustomerInfo({ ...customerInfo, toc: !customerInfo.toc });
@@ -90,7 +87,7 @@ export default function CustomerAgreePrefsInput() {
           />
         </div>
       </div>
-      <div className="navigation-wrapper">
+      {/* <div className="navigation-wrapper">
         <NavigateButton id="back" to={"/"}>
           Gå Tilbage
         </NavigateButton>
@@ -116,7 +113,7 @@ export default function CustomerAgreePrefsInput() {
             Betal
           </button>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
