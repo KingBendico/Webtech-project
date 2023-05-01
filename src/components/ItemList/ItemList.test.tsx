@@ -31,8 +31,6 @@ describe("ItemList component", () => {
       "recurringSchedule": "",
       "isGiftWrapped": false,
       "imageUrl": ""
-      
-      
     },
   ]
   
