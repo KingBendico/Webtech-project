@@ -10,19 +10,9 @@
     margin-top: 1rem;
 }
 
-/* .navigation-wrapper {
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
-    width: 95%;
-    height: 90%;
-    align-items: end;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+.error-bordercolor-checkbox {
+    outline: 2px solid red;
 }
-.navigation-wrapper button {
-    height: fit-content;
-} */
 
 @media screen and (min-width: 768px) {
     .customeragree-wrapper {

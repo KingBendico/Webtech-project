@@ -16,8 +16,8 @@ describe("ItemList component", () => {
       "upsellProductId": null,
       "quantity": 1,
       "recurringSchedule": "",
-      "isGiftWrapped": false
-      
+      "isGiftWrapped": false,
+      "imageUrl": ""
     },
     {
       "id": "vitamin-c-500-250",
@@ -29,7 +29,8 @@ describe("ItemList component", () => {
       "upsellProductId": "vitamin-c-depot-500-250",
       "quantity": 1,
       "recurringSchedule": "",
-      "isGiftWrapped": false
+      "isGiftWrapped": false,
+      "imageUrl": ""
       
       
     },

@@ -1,8 +1,12 @@
+import { useInputValidation } from "../../context/InputValidationContext";
 import { useCustomer } from "../../context/UserContext";
 import "./style.css";
 
 export default function customerInfoInput() {
   const { customerInfo, setCustomerInfo } = useCustomer();
+  const { inputValidation, setInputValidation } = useInputValidation();
+  
+  
   const handleAdressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCustomerInfo({ ...customerInfo, adress: e.target.value });
   };
@@ -29,7 +33,7 @@ export default function customerInfoInput() {
       setCustomerInfo({ ...customerInfo, vatNumber: e.target.value });
     }
   };
-
+  
   const handleZipCodeChange = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -81,10 +85,19 @@ export default function customerInfoInput() {
           }
           return city;
         })
-        .catch(() => {console.log("Zip code does not exist"); return ""});
+        .catch(() => {
+          console.log("Zip code does not exist"); 
+          setCustomerInfo((prevState)=>{
+            return {...prevState, city:""}
+          }); 
+          updateZipcode()
+          return ""});
   
   };
-
+  const updateZipcode = () =>
+  setInputValidation((prevState) => {
+    return { ...prevState, zipCode:true };
+  });
   return (
     <>
       <div className="container">
@@ -100,6 +113,7 @@ export default function customerInfoInput() {
                 Land
               </label>
               <select
+                className={ inputValidation.country ? "error-bordercolor":""}
                 name="country"
                 id="country"
                 onChange={handleCountryChange}
@@ -117,6 +131,7 @@ export default function customerInfoInput() {
               </label>
               <br />
               <input
+                className={inputValidation.phoneNr ? "error-bordercolor":""}
                 name="phone-number"
                 id="phone-number"
                 type="number"
@@ -131,6 +146,7 @@ export default function customerInfoInput() {
                 Postnummer
               </label>
               <input
+                className={inputValidation.zipCode ? "error-bordercolor":""}
                 name="zip-code"
                 value={customerInfo.zipCode}
                 placeholder="Indtast postnr."
@@ -146,6 +162,7 @@ export default function customerInfoInput() {
               <br />
               {customerInfo.country == "denmark" ? (
                 <input
+                  className={inputValidation.city ? "error-bordercolor":""}
                   name="city"
                   id="city"
                   value={customerInfo.city}
@@ -153,7 +170,7 @@ export default function customerInfoInput() {
                 />
               ) : (
                 <input
-                  className="required"
+                  className={"required " + inputValidation.city ? "error-bordercolor":""}
                   name="city"
                   placeholder="Indtast bynavn"
                   id="city"
@@ -168,6 +185,7 @@ export default function customerInfoInput() {
               </label>
               <br />
               <input
+                className={inputValidation.adress ? "error-bordercolor":""}
                 name="address"
                 id="address"
                 placeholder="Indtast adresse"
@@ -183,6 +201,7 @@ export default function customerInfoInput() {
               </label>
               <br />
               <input
+                className={inputValidation.name ? "error-bordercolor":""}
                 name="name"
                 id="name"
                 placeholder="Indtast navn"
@@ -196,6 +215,7 @@ export default function customerInfoInput() {
                 Email
               </label>
               <input
+                className={inputValidation.email ? "error-bordercolor":""}
                 name="email"
                 id="email"
                 type="email"
@@ -218,6 +238,7 @@ export default function customerInfoInput() {
             <div className="label-wrapper">
               <label htmlFor="vat-number">CVR-nummer</label>
               <input
+                className={inputValidation.vatNumber ? "error-bordercolor":""}
                 name="vat-number"
                 id="vat-number"
                 placeholder="Indtast CVR-nr."

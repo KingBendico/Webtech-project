@@ -33,7 +33,6 @@ function App() {
           setCurrentPage('/PageNotFound')
           break;
       }
-      console.log(isLoading)
   };
 
   useEffect(() => {

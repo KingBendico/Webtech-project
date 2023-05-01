@@ -5,6 +5,7 @@ import { usePayment } from "../../context/PaymentContext";
 import { useCustomer } from "../../context/UserContext";
 import NavigateButton from "../NavigateButton/NavigateButton";
 import "./style.css";
+import {InputValidation} from "../../types/types"
 
 export default function PaymentSubmit() {
   const { setIsLoading } = useLoading();
@@ -17,7 +18,6 @@ export default function PaymentSubmit() {
         const isValidatet = validateInputFields()
 
         if(isValidatet){
-            console.log("here")
             pay()
         }
         console.log(inputValidation)
@@ -25,46 +25,51 @@ export default function PaymentSubmit() {
 
     const validateInputFields = () => {
         var validatet = true
+        var TMPinputValidation = inputValidation
         if(!customerInfo.toc){
-            setInputValidation({ ...inputValidation, toc: true })
+            TMPinputValidation.toc = true
             validatet = false
         }
         if(!customerInfo.country){
-            setInputValidation({ ...inputValidation, country: true })
+            TMPinputValidation.country = true
             validatet = false
         }
         if(!customerInfo.zipCode){
-            setInputValidation({ ...inputValidation, zipCode: true })
+            TMPinputValidation.zipCode = true
             validatet = false
         }
         if(!customerInfo.city){
-            setInputValidation({ ...inputValidation, city: true })
+            TMPinputValidation.city = true
             validatet = false
         }
         if(!customerInfo.adress){
-            setInputValidation({ ...inputValidation, adress: true })
+            TMPinputValidation.adress = true
             validatet = false
         }
         if(customerInfo.phoneNr.length != 8){
-            setInputValidation({ ...inputValidation, phoneNr: true })
+            TMPinputValidation.phoneNr = !inputValidation.phoneNr
             validatet = false
         }
         if(!customerInfo.name){
-            setInputValidation({ ...inputValidation, name: true })
+            TMPinputValidation.name = true
             validatet = false
         }
         if(customerInfo.vatNumber.length != 0 && customerInfo.vatNumber.length != 8){  
-            setInputValidation({ ...inputValidation, vatNumber: true })
+            TMPinputValidation.vatNumber = true
             validatet = false
         }
         if(!customerInfo.email.includes("@")){
-            console.log("lololol")
-            setInputValidation({ ...inputValidation, email: true })
+            TMPinputValidation.email = true
             validatet = false
         }
-        console.log(validatet)
+        updateInputValidation(TMPinputValidation)
         return validatet
     }
+
+    const updateInputValidation = (inputValidation:InputValidation) =>
+    setInputValidation((prevState) => {
+      return { ...prevState, inputValidation };
+    });
 
     const createOptions = () => {
         const headers = new Headers();
@@ -84,7 +89,6 @@ export default function PaymentSubmit() {
 
         return options
     }
-
     const pay = async () => {
 
 

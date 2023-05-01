@@ -45,4 +45,16 @@ interface PaymentState {
   paymentMethod: PaymentMethod | null;
 }
 
-export type { Item, CustomerInfo, PaymentState, PaymentMethod, BillingAddress };
+interface InputValidation {
+  toc: boolean,
+  country: boolean,
+  zipCode: boolean,
+  city: boolean,
+  adress: boolean,
+  phoneNr: boolean,
+  name: boolean,
+  vatNumber: boolean,
+  email: boolean,
+}
+
+export type { Item, CustomerInfo, PaymentState, PaymentMethod, BillingAddress, InputValidation };
