@@ -5,6 +5,8 @@ import "./style.css"
 import PaymentProvider from "../../context/PaymentContext";
 import { useLoading } from "../../context/LoadingContext";
 import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
+import PaymentSubmit from "../../components/PaymentSubmit/PaymentSubmit";
+import InputValidationProvider from "../../context/InputValidationContext";
 
 
 export default function Checkout() {
@@ -13,13 +15,16 @@ export default function Checkout() {
   return (
     <>
     {isLoading === true ? <LoadingIndicator/>:(
-    <PaymentProvider>
-      <CustomerInfoInput />
-      <div className="section-wrapper">
-        <Payment />
-        <CustomerAgreePrefsInput />
-      </div>
-    </PaymentProvider>
+    <InputValidationProvider>
+      <PaymentProvider>
+        <CustomerInfoInput />
+        <div className="section-wrapper">
+          <Payment />
+          <CustomerAgreePrefsInput />
+          <PaymentSubmit/>
+        </div>
+      </PaymentProvider>
+    </InputValidationProvider>
   )}
     </>
   );

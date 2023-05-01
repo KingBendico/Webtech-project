@@ -10,7 +10,7 @@
     margin-top: 1rem;
 }
 
-.navigation-wrapper {
+/* .navigation-wrapper {
     display: flex;
     justify-content: end;
     gap: 1rem;
@@ -22,7 +22,7 @@
 }
 .navigation-wrapper button {
     height: fit-content;
-}
+} */
 
 @media screen and (min-width: 768px) {
     .customeragree-wrapper {
